@@ -1,55 +1,48 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { TrendingUp, Users, Activity, Globe, DollarSign, Repeat } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { Activity, Shield, Code2, Clock } from 'lucide-react';
 
-const stats = [
-  { icon: DollarSign, value: '$2.4B+', label: 'Total Value Locked', color: '#6366f1', change: '+12.4%' },
-  { icon: Activity, value: '$18.2B+', label: 'All-Time Volume', color: '#0ea5e9', change: '+8.7%' },
-  { icon: Users, value: '850K+', label: 'Unique Users', color: '#8b5cf6', change: '+24.1%' },
-  { icon: Globe, value: '20+', label: 'Chains Supported', color: '#14b8a6', change: '+3 this yr' },
-  { icon: Repeat, value: '42M+', label: 'Transactions', color: '#f59e0b', change: '+18.3%' },
-  { icon: TrendingUp, value: '$480M+', label: 'Fees Distributed', color: '#64748b', change: '+9.2%' },
-]
+const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const GITHUB_URL = 'https://github.com/magnetar-finance';
 
-function StatCard({ stat, index }) {
-  const ref = useRef(null)
-  const inView = useInView(ref, { once: true })
-  const Icon = stat.icon
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="relative glass-card rounded-lg p-6 border border-white/5 group hover:border-white/10 transition-all duration-300 overflow-hidden"
-    >
-      {/* Background glow */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-           style={{ background: `radial-gradient(circle at top left, ${stat.color}10, transparent 70%)` }} />
-
-      <div className="relative z-10">
-        <div className="flex items-center justify-between mb-4">
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-               style={{ background: `${stat.color}20` }}>
-            <Icon className="w-5 h-5" style={{ color: stat.color }} />
-          </div>
-          <span className="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2.5 py-1 rounded-full">
-            {stat.change}
-          </span>
-        </div>
-        <p className="text-3xl font-bold text-white mb-1">
-          {stat.value}
-        </p>
-        <p className="text-slate-500 text-sm">{stat.label}</p>
-      </div>
-    </motion.div>
-  )
-}
+const pillars = [
+  {
+    icon: Activity,
+    color: '#2962ff',
+    title: 'Live Protocol',
+    description:
+      'Phase 1 is deployed and operational. The ve(3,3) DEX and LP Aggregator are live on the Arc Testnet.',
+    tag: 'Phase 1 · Live Now',
+  },
+  {
+    icon: Shield,
+    color: '#10b981',
+    title: 'Non-Custodial',
+    description:
+      'Your assets remain in your wallet at all times. Smart contracts are fully permissionless — no admin keys, no upgradeable proxies.',
+    tag: 'Self-custody · Trustless',
+  },
+  {
+    icon: Code2,
+    color: '#06b6d4',
+    title: 'Open Source',
+    description:
+      'All contracts and front-end code are publicly available on GitHub. Audit and verify every function before you interact.',
+    tag: 'Fully verifiable · GitHub',
+  },
+  {
+    icon: Clock,
+    color: '#8b5cf6',
+    title: 'Sustainable Yield',
+    description:
+      'Emissions are directed by ve-token holders, not the team. Yield comes from real protocol usage — trading fees and governance bribes.',
+    tag: 've(3,3) · Vote-directed',
+  },
+];
 
 export default function EcosystemStats() {
   return (
-    <section id="ecosystem" className="relative py-24 px-6">
+    <section id="ecosystem" className="relative py-28 px-6">
+      <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -57,46 +50,91 @@ export default function EcosystemStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <span className="inline-block text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-4 px-4 py-1.5 rounded-lg glass-card border border-cyan-500/20">
-            Ecosystem Stats
+          <span className="section-badge text-cyan-600 border-cyan-700/40 mb-6 inline-flex">
+            Protocol
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Powering{' '}
-            <span className="gradient-text">Billions in DeFi</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-5 mb-4 tracking-tight">
+            Built on <span className="gradient-text">First Principles</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Real numbers from a live, growing protocol — not projections.
+          <p className="text-slate-500 text-base max-w-lg leading-relaxed">
+            No inflated metrics. No vanity numbers. Just a live, growing
+            protocol with real fundamentals.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {stats.map((stat, i) => (
-            <StatCard key={stat.label} stat={stat} index={i} />
-          ))}
+        {/* Pillars grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+          {pillars.map((p, i) => {
+            const Icon = p.icon;
+            return (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group p-8 border-l border-white/5 first:border-l-0 hover:bg-white/[0.01] transition-colors duration-300"
+              >
+                <div
+                  className="w-10 h-10 rounded-md flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-105"
+                  style={{
+                    background: `${p.color}14`,
+                    border: `1px solid ${p.color}28`,
+                  }}
+                >
+                  <Icon className="w-4.5 h-4.5" style={{ color: p.color }} />
+                </div>
+                <h3 className="text-base font-bold text-white mb-3 tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                  {p.description}
+                </p>
+                <p className="mono text-xs" style={{ color: `${p.color}80` }}>
+                  {p.tag}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
 
-        {/* Protocol health bar */}
+        {/* Protocol status bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 glass-card border border-white/5 rounded-lg p-6 flex flex-col md:flex-row items-center justify-between gap-6"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-4 border-t border-white/5 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <div className="flex items-center gap-3">
-            <span className="flex h-3 w-3 rounded-full bg-emerald-400 animate-pulse-glow" />
-            <span className="text-white font-semibold">Protocol Status</span>
-            <span className="text-emerald-400 text-sm font-medium">All Systems Operational</span>
+            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse-glow" />
+            <span className="text-sm text-white font-medium">
+              All Systems Operational
+            </span>
+            <span className="mono text-xs text-slate-600">· Phase 1</span>
           </div>
-          <div className="flex items-center gap-8 text-sm text-slate-500">
-            <span>Uptime: <strong className="text-slate-300">99.98%</strong></span>
-            <span>Avg block time: <strong className="text-slate-300">~2.1s</strong></span>
-            <span>Active validators: <strong className="text-slate-300">128</strong></span>
+          <div className="flex items-center gap-6 mono text-xs text-slate-600">
+            <a
+              href={APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition-colors"
+            >
+              Launch App →
+            </a>
+            <a
+              href={GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-500 transition-colors"
+            >
+              GitHub →
+            </a>
           </div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { CheckCircle2, Circle, Clock } from 'lucide-react'
+import { motion } from 'framer-motion';
+import { CheckCircle2, Circle, Clock } from 'lucide-react';
 
 const phases = [
   {
@@ -7,13 +7,13 @@ const phases = [
     title: 'Foundation',
     status: 'active',
     quarter: 'Q1–Q2 2025',
-    color: '#6366f1',
+    color: '#2962ff',
     items: [
       've(3,3) DEX launch',
       'LP Aggregator v1',
       'Gauge voting & emission bribes',
       'veMGTR governance tokens',
-      'Multi-chain deployment',
+      'Mainnet deployment',
     ],
   },
   {
@@ -21,13 +21,13 @@ const phases = [
     title: 'Expansion',
     status: 'upcoming',
     quarter: 'Q3 2025',
-    color: '#0ea5e9',
+    color: '#06b6d4',
     items: [
-      'Cross-chain bridge integration',
+      'Intents swapping architecture',
+      've-NFT lock rentals market',
       'Lending protocol launch',
-      'Mobile wallet app (beta)',
       'DAO governance activation',
-      'Ecosystem grants program',
+      'Ecosystem incentive program',
     ],
   },
   {
@@ -35,9 +35,9 @@ const phases = [
     title: 'Scale',
     status: 'upcoming',
     quarter: 'Q4 2025',
-    color: '#14b8a6',
+    color: '#10b981',
     items: [
-      'Multi-chain Web Wallet',
+      'Magnetar Web Wallet',
       'Payments infrastructure',
       'Institutional API access',
       'Perps & perpetual futures',
@@ -58,28 +58,30 @@ const phases = [
       'Global fiat on/off ramps',
     ],
   },
-]
+];
 
-const statusIcon = {
-  completed: <CheckCircle2 className="w-4 h-4 text-emerald-400" />,
-  active: <Clock className="w-4 h-4 text-indigo-400 animate-pulse" />,
-  upcoming: <Circle className="w-4 h-4 text-slate-600" />,
-}
-
-const statusLabel = {
-  completed: { text: 'Completed', class: 'text-emerald-400 bg-emerald-400/10 border-emerald-400/20' },
-  active: { text: 'In Progress', class: 'text-indigo-400 bg-indigo-400/10 border-indigo-400/20' },
-  upcoming: { text: 'Upcoming', class: 'text-slate-500 bg-slate-500/10 border-slate-500/20' },
-}
+const statusConfig = {
+  completed: {
+    icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />,
+    badge: 'text-emerald-400 border-emerald-500/30',
+    label: 'Completed',
+  },
+  active: {
+    icon: <Clock className="w-3.5 h-3.5 text-blue-500" />,
+    badge: 'text-blue-500 border-blue-600/30',
+    label: 'In Progress',
+  },
+  upcoming: {
+    icon: <Circle className="w-3.5 h-3.5 text-slate-700" />,
+    badge: 'text-slate-600 border-slate-700/50',
+    label: 'Upcoming',
+  },
+};
 
 export default function Roadmap() {
   return (
     <section id="roadmap" className="relative py-32 px-6">
-      {/* Section glow */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/2 -translate-y-1/2 left-0 w-[400px] h-[600px]"
-             style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(99,102,241,0.07) 0%, transparent 70%)' }} />
-      </div>
+      <div className="section-divider absolute top-0 left-0 right-0" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -87,78 +89,92 @@ export default function Roadmap() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-20"
+          className="mb-20"
         >
-          <span className="section-badge text-amber-400 border-amber-500/30 mb-4 inline-flex">
-            <span className="w-1 h-1 rounded-full bg-amber-400 inline-block" />
+          <span className="section-badge text-amber-600 border-amber-700/40 mb-6 inline-flex">
             Roadmap
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 mt-4">
-            Building the{' '}
-            <span className="gradient-text">Long Game</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-5 mb-4 tracking-tight">
+            Building the <span className="gradient-text">Long Game</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            A transparent, ambitious roadmap for making Magnetar the backbone of decentralized finance.
+          <p className="text-slate-500 text-base max-w-lg leading-relaxed">
+            A transparent, phased roadmap toward making Magnetar the backbone of
+            decentralized finance.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0">
           {phases.map((phase, i) => {
-            const sl = statusLabel[phase.status]
+            const sc = statusConfig[phase.status];
             return (
               <motion.div
                 key={phase.phase}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.12 }}
-                className={`relative glass-card border rounded-lg p-7 overflow-hidden ${
-                  phase.status === 'active'
-                    ? 'border-indigo-500/30 shadow-lg shadow-indigo-500/5'
-                    : 'border-white/5'
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={`relative p-8 border-l border-white/5 first:border-l-0 ${
+                  phase.status === 'active' ? 'bg-blue-600/[0.03]' : ''
                 }`}
               >
-                {/* Top color line */}
-                <div className="absolute top-0 left-0 right-0 h-px"
-                     style={{ background: `linear-gradient(90deg, transparent, ${phase.color}60, transparent)` }} />
+                {/* Top color accent */}
+                <div
+                  className="absolute top-0 left-8 right-8 h-px"
+                  style={{
+                    background: `linear-gradient(90deg, ${phase.color}60, transparent)`,
+                  }}
+                />
 
-                <div className="relative z-10">
-                  {/* Phase + status */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-slate-500 tracking-widest uppercase">{phase.phase}</span>
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-sm border ${sl.class}`}>
-                      {sl.text}
-                    </span>
+                {/* Phase label + status */}
+                <div className="flex items-start justify-between mb-6 mt-4">
+                  <div>
+                    <p className="mono text-xs text-slate-600 tracking-widest uppercase mb-1">
+                      {phase.phase}
+                    </p>
+                    <p
+                      className="mono text-xs font-medium"
+                      style={{ color: phase.color }}
+                    >
+                      {phase.quarter}
+                    </p>
                   </div>
-
-                  {/* Quarter */}
-                  <p className="text-sm font-medium mb-1" style={{ color: phase.color }}>{phase.quarter}</p>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-5">
-                    {phase.title}
-                  </h3>
-
-                  {/* Items */}
-                  <ul className="space-y-2.5">
-                    {phase.items.map((item) => (
-                      <li key={item} className="flex items-center gap-2.5">
-                        {statusIcon[phase.status]}
-                        <span className={`text-sm ${
-                          phase.status === 'completed' ? 'text-slate-400 line-through' :
-                          phase.status === 'active' ? 'text-slate-300' : 'text-slate-600'
-                        }`}>
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                  <span
+                    className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 border mono ${sc.badge}`}
+                    style={{ borderRadius: '3px' }}
+                  >
+                    {sc.label}
+                  </span>
                 </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold text-white mb-6 tracking-tight">
+                  {phase.title}
+                </h3>
+
+                {/* Items */}
+                <ul className="space-y-3">
+                  {phase.items.map((item) => (
+                    <li key={item} className="flex items-center gap-2.5">
+                      {sc.icon}
+                      <span
+                        className={`text-sm ${
+                          phase.status === 'completed'
+                            ? 'text-slate-500 line-through'
+                            : phase.status === 'active'
+                            ? 'text-slate-300'
+                            : 'text-slate-600'
+                        }`}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }
