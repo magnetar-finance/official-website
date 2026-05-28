@@ -127,9 +127,9 @@ export default function Hero() {
             </div>
             <div className="w-px h-10 bg-white/5" />
             <div>
-              <p className="text-2xl font-bold text-white tracking-tight">1</p>
+              <p className="text-2xl font-bold text-white tracking-tight">2</p>
               <p className="text-xs mono text-slate-600 mt-0.5 tracking-widest uppercase">
-                Network (Arc)
+                Networks (Arc, LitVM)
               </p>
             </div>
             <div className="w-px h-10 bg-white/5" />

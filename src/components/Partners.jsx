@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 
-const chains = [{ name: 'Arc Testnet', abbr: 'ARC', color: '#6366f1' }];
+const chains = [
+  { name: 'Arc', abbr: 'ARC', color: '#6366f1' },
+  { name: 'LitVM', abbr: 'LIT', color: '#10b981' },
+];
 
 const integrations = [
   { name: 'Chainlink', category: 'Price Feeds' },
@@ -29,10 +32,10 @@ export default function Partners() {
             Infrastructure
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 mt-5 tracking-tight">
-            Built on Arc Testnet
+            Built on Arc & LitVM
           </h2>
           <p className="text-slate-500 text-base max-w-md mx-auto leading-relaxed">
-            Currently deployed on the Arc Testnet. Built on battle-tested
+            Currently deployed on Arc and LitVM. Built on battle-tested
             infrastructure.
           </p>
         </motion.div>
