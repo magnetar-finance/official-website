@@ -10,7 +10,7 @@ const pillars = [
     color: '#2962ff',
     title: 'Live Protocol',
     description:
-      'Phase 1 is deployed and operational. The ve(3,3) DEX and LP Aggregator are live on the Arc Testnet.',
+      'Phase 1 is deployed and operational. The ve(3,3) DEX and LP Aggregator are live on the Arc Testnet and Liteforge Testnet.',
     tag: 'Phase 1 · Live Now',
   },
   {

@@ -6,7 +6,7 @@ const phases = [
     phase: 'Phase 1',
     title: 'Foundation',
     status: 'active',
-    quarter: 'Q1–Q2 2025',
+    quarter: 'Q1–Q2 2026',
     color: '#2962ff',
     items: [
       've(3,3) DEX launch',
@@ -20,7 +20,7 @@ const phases = [
     phase: 'Phase 2',
     title: 'Expansion',
     status: 'upcoming',
-    quarter: 'Q3 2025',
+    quarter: 'Q3 2026',
     color: '#06b6d4',
     items: [
       'Intents swapping architecture',
@@ -34,7 +34,7 @@ const phases = [
     phase: 'Phase 3',
     title: 'Scale',
     status: 'upcoming',
-    quarter: 'Q4 2025',
+    quarter: 'Q4 2026',
     color: '#10b981',
     items: [
       'Magnetar Web Wallet',
@@ -48,7 +48,7 @@ const phases = [
     phase: 'Phase 4',
     title: 'Dominance',
     status: 'upcoming',
-    quarter: '2026',
+    quarter: '2027',
     color: '#8b5cf6',
     items: [
       'Magnetar L2 rollup',
