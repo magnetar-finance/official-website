@@ -12,7 +12,7 @@ const phases = [
       've(3,3) DEX launch',
       'LP Aggregator v1',
       'Gauge voting & emission bribes',
-      'veMGTR governance tokens',
+      'veMGN governance tokens',
       'Mainnet deployment',
     ],
   },

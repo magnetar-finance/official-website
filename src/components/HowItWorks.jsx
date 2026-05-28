@@ -28,7 +28,7 @@ const steps = [
     color: '#10b981',
     title: 'Lock & Vote',
     description:
-      'Lock MGTR into veMGTR to join weekly gauge voting. Direct emissions to your preferred pools and earn bribes.',
+      'Lock MGTR into veMGN to join weekly gauge voting. Direct emissions to your preferred pools and earn bribes.',
     tag: 've(3,3) flywheel · weekly epochs',
   },
   {
