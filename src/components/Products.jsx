@@ -31,6 +31,16 @@ const liveProducts = [
     features: ['--multi-hop-routing', '--price-impact-min', '--gas-optimized'],
     href: APP_URL,
   },
+  {
+    icon: Key,
+    color: '#7c3aed',
+    label: 'Lock Rentals',
+    cmdName: 'lock_rentals',
+    description:
+      'Rent ve-NFTs for a fee, unlock immediate liquidity. A decentralized marketplace for borrowing and lending voting power and governance rights.',
+    features: ['--p2p-rentals', '--upfront-yield', '--vote-delegation'],
+    href: APP_URL,
+  },
 ];
 
 const comingSoon = [
@@ -38,11 +48,6 @@ const comingSoon = [
     icon: Zap,
     label: 'intents_swap',
     desc: 'Gasless, optimized swaps via professional solvers.',
-  },
-  {
-    icon: Key,
-    label: 'lock_rentals',
-    desc: 'Rent ve-NFTs for a fee, unlock immediate liquidity.',
   },
   {
     icon: Coins,
@@ -107,7 +112,7 @@ export default function Products() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4"
         >
           {liveProducts.map((product) => {
             const Icon = product.icon;
@@ -208,7 +213,7 @@ export default function Products() {
           <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-3">
             # upcoming modules — access restricted
           </p>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
             {comingSoon.map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}

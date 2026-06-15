@@ -5,7 +5,7 @@ const phases = [
   {
     phase: 'PHASE_1',
     title: 'Foundation',
-    status: 'active',
+    status: 'completed',
     quarter: '2026-Q1/Q2',
     color: '#2962ff',
     items: [
@@ -19,7 +19,7 @@ const phases = [
   {
     phase: 'PHASE_2',
     title: 'Expansion',
-    status: 'upcoming',
+    status: 'active',
     quarter: '2026-Q3',
     color: '#4f46e5',
     items: [
