@@ -3,10 +3,10 @@ import { CheckCircle2, Circle, Clock } from 'lucide-react';
 
 const phases = [
   {
-    phase: 'Phase 1',
+    phase: 'PHASE_1',
     title: 'Foundation',
     status: 'active',
-    quarter: 'Q1–Q2 2026',
+    quarter: '2026-Q1/Q2',
     color: '#2962ff',
     items: [
       've(3,3) DEX launch',
@@ -17,11 +17,11 @@ const phases = [
     ],
   },
   {
-    phase: 'Phase 2',
+    phase: 'PHASE_2',
     title: 'Expansion',
     status: 'upcoming',
-    quarter: 'Q3 2026',
-    color: '#06b6d4',
+    quarter: '2026-Q3',
+    color: '#4f46e5',
     items: [
       'Intents swapping architecture',
       've-NFT lock rentals market',
@@ -31,11 +31,11 @@ const phases = [
     ],
   },
   {
-    phase: 'Phase 3',
+    phase: 'PHASE_3',
     title: 'Scale',
     status: 'upcoming',
-    quarter: 'Q4 2026',
-    color: '#10b981',
+    quarter: '2026-Q4',
+    color: '#3730a3',
     items: [
       'Magnetar Web Wallet',
       'Payments infrastructure',
@@ -45,11 +45,11 @@ const phases = [
     ],
   },
   {
-    phase: 'Phase 4',
+    phase: 'PHASE_4',
     title: 'Dominance',
     status: 'upcoming',
     quarter: '2027',
-    color: '#8b5cf6',
+    color: '#1e1b4b',
     items: [
       'Magnetar L2 rollup',
       'zkEVM integration',
@@ -62,19 +62,24 @@ const phases = [
 
 const statusConfig = {
   completed: {
-    icon: <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />,
-    badge: 'text-emerald-400 border-emerald-500/30',
-    label: 'Completed',
+    icon: <CheckCircle2 className="w-3 h-3 text-[#2962ff]" />,
+    badge:
+      'text-[#2962ff] border-[rgba(41,98,255,0.3)] bg-[rgba(41,98,255,0.05)]',
+    label: '[DONE]',
+    prefix: '✓',
   },
   active: {
-    icon: <Clock className="w-3.5 h-3.5 text-blue-500" />,
-    badge: 'text-blue-500 border-blue-600/30',
-    label: 'In Progress',
+    icon: <Clock className="w-3 h-3 text-[#2962ff]" />,
+    badge:
+      'text-[#2962ff] border-[rgba(41,98,255,0.4)] bg-[rgba(41,98,255,0.08)]',
+    label: '[ACTIVE]',
+    prefix: '>',
   },
   upcoming: {
-    icon: <Circle className="w-3.5 h-3.5 text-slate-700" />,
-    badge: 'text-slate-600 border-slate-700/50',
-    label: 'Upcoming',
+    icon: <Circle className="w-3 h-3 text-[#334155]" />,
+    badge: 'text-[#334155] border-[rgba(41,98,255,0.06)]',
+    label: '[QUEUED]',
+    prefix: '-',
   },
 };
 
@@ -91,15 +96,18 @@ export default function Roadmap() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <span className="section-badge text-amber-600 border-amber-700/40 mb-6 inline-flex">
-            Roadmap
+          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+            magnetar@defi:~$ cat ./roadmap.log
+          </p>
+          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+            // roadmap
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-5 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mt-5 mb-4 tracking-tight">
             Building the <span className="gradient-text">Long Game</span>
           </h2>
-          <p className="text-slate-500 text-base max-w-lg leading-relaxed">
-            A transparent, phased roadmap toward making Magnetar the backbone of
-            decentralized finance.
+          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+            # A transparent, phased roadmap toward making Magnetar
+            <br /># the backbone of decentralized finance.
           </p>
         </motion.div>
 
@@ -113,56 +121,64 @@ export default function Roadmap() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative p-8 border-l border-white/5 first:border-l-0 ${
-                  phase.status === 'active' ? 'bg-blue-600/[0.03]' : ''
+                className={`relative p-7 border-l border-[rgba(41,98,255,0.06)] first:border-l-0 ${
+                  phase.status === 'active' ? 'bg-[rgba(41,98,255,0.02)]' : ''
                 }`}
               >
                 {/* Top color accent */}
                 <div
-                  className="absolute top-0 left-8 right-8 h-px"
+                  className="absolute top-0 left-7 right-7 h-px"
                   style={{
                     background: `linear-gradient(90deg, ${phase.color}60, transparent)`,
                   }}
                 />
 
-                {/* Phase label + status */}
-                <div className="flex items-start justify-between mb-6 mt-4">
+                {/* Log entry header */}
+                <div className="flex items-start justify-between mb-5 mt-4">
                   <div>
-                    <p className="mono text-xs text-slate-600 tracking-widest uppercase mb-1">
-                      {phase.phase}
+                    <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-0.5">
+                      {phase.quarter}
                     </p>
                     <p
-                      className="mono text-xs font-medium"
+                      className="text-xs font-bold tracking-widest"
                       style={{ color: phase.color }}
                     >
-                      {phase.quarter}
+                      {phase.phase}
                     </p>
                   </div>
                   <span
-                    className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 border mono ${sc.badge}`}
-                    style={{ borderRadius: '3px' }}
+                    className={`inline-flex items-center text-[10px] font-bold px-2 py-1 border tracking-widest ${sc.badge}`}
+                    style={{ borderRadius: '2px' }}
                   >
                     {sc.label}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-6 tracking-tight">
+                <h3 className="text-base font-bold text-[#ffffff] mb-5 tracking-tight">
                   {phase.title}
+                  {phase.status === 'active' && (
+                    <span className="ml-2 text-[#2962ff] cursor-blink">▋</span>
+                  )}
                 </h3>
 
-                {/* Items */}
-                <ul className="space-y-3">
+                {/* Items — terminal log list */}
+                <ul className="space-y-2.5">
                   {phase.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2.5">
-                      {sc.icon}
+                    <li key={item} className="flex items-start gap-2">
                       <span
-                        className={`text-sm ${
+                        className="text-[10px] mt-0.5 shrink-0"
+                        style={{ color: phase.color }}
+                      >
+                        {sc.prefix}
+                      </span>
+                      <span
+                        className={`text-xs tracking-wide ${
                           phase.status === 'completed'
-                            ? 'text-slate-500 line-through'
+                            ? 'text-[#334155] line-through'
                             : phase.status === 'active'
-                            ? 'text-slate-300'
-                            : 'text-slate-600'
+                            ? 'text-[#94a3b8]'
+                            : 'text-[#334155]'
                         }`}
                       >
                         {item}

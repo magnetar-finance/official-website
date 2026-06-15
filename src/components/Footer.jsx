@@ -27,28 +27,28 @@ const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
 const GITHUB_URL = 'https://github.com/magnetar-finance';
 
 const footerLinks = {
-  Products: [
-    { label: 've(3,3) DEX', href: APP_URL },
-    { label: 'LP Aggregator', href: APP_URL },
-    { label: 'Cross-Chain Bridge', href: '#' },
-    { label: 'Web Wallet', href: '#' },
-    { label: 'Lending & Borrowing', href: '#' },
+  products: [
+    { label: 've(3,3)_dex', href: APP_URL },
+    { label: 'lp_aggregator', href: APP_URL },
+    { label: 'cross_chain_bridge', href: '#' },
+    { label: 'web_wallet', href: '#' },
+    { label: 'lending_v1', href: '#' },
   ],
-  Developers: [
-    { label: 'GitHub', href: GITHUB_URL },
-    { label: 'Documentation', href: GITHUB_URL },
-    { label: 'Bug Bounty', href: '#' },
+  developers: [
+    { label: 'github', href: GITHUB_URL },
+    { label: 'documentation', href: GITHUB_URL },
+    { label: 'bug_bounty', href: '#' },
   ],
-  Company: [
-    { label: 'About', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Contact', href: '#' },
+  company: [
+    { label: 'about', href: '#' },
+    { label: 'blog', href: '#' },
+    { label: 'careers', href: '#' },
+    { label: 'contact', href: '#' },
   ],
-  Legal: [
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Disclaimer', href: '#' },
+  legal: [
+    { label: 'terms_of_service', href: '#' },
+    { label: 'privacy_policy', href: '#' },
+    { label: 'disclaimer', href: '#' },
   ],
 };
 
@@ -61,7 +61,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.04] bg-[#02020a]">
+    <footer className="relative border-t border-[rgba(41,98,255,0.08)] bg-[#000000]">
       {/* Top gradient accent */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px opacity-60"
@@ -71,25 +71,32 @@ export default function Footer() {
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
         {/* Top section */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-12 pb-16 border-b border-white/[0.04]">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-12 pb-12 border-b border-[rgba(41,98,255,0.06)]">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5 mb-5">
+            <div className="flex items-center gap-2.5 mb-4">
               <img
                 src={logo}
                 alt="Magnetar Finance"
-                className="w-8 h-8 object-contain"
-                style={{ filter: 'drop-shadow(0 0 6px rgba(41,98,255,0.4))' }}
+                className="w-6 h-6 object-contain"
+                style={{
+                  filter:
+                    'drop-shadow(0 0 5px rgba(41,98,255,0.5)) saturate(0) brightness(10)',
+                }}
               />
-              <span className="text-white font-bold text-base tracking-tight">
-                Magnetar Finance
+              <span className="font-bold text-sm tracking-tight">
+                <span className="text-[#475569]">&gt; </span>
+                <span className="text-[#ffffff]">magnetar</span>
+                <span className="text-[#2962ff]">_finance</span>
               </span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed mb-6 max-w-xs">
-              A ve(3,3) DEX and LP aggregator for DeFi natives — delivering
-              sustainable tokenomics and best-rate swaps.
+            <p className="text-[#475569] text-xs leading-relaxed mb-2 max-w-xs">
+              # A ve(3,3) DEX and LP aggregator for DeFi natives.
+            </p>
+            <p className="text-[#334155] text-[10px] leading-relaxed mb-5 max-w-xs tracking-wide">
+              # Sustainable tokenomics and best-rate swaps.
             </p>
             {/* Socials */}
             <div className="flex items-center gap-2">
@@ -99,35 +106,36 @@ export default function Footer() {
                   href={href}
                   target={href !== '#' ? '_blank' : undefined}
                   rel={href !== '#' ? 'noopener noreferrer' : undefined}
-                  className="w-8 h-8 rounded-md flex items-center justify-center text-slate-600 hover:text-white border border-white/[0.05] hover:border-blue-600/40 hover:bg-blue-600/8 transition-all duration-200"
+                  className="w-7 h-7 flex items-center justify-center text-[#334155] hover:text-[#2962ff] border border-[rgba(41,98,255,0.06)] hover:border-[rgba(41,98,255,0.25)] hover:bg-[rgba(41,98,255,0.04)] transition-all duration-200"
+                  style={{ borderRadius: '2px' }}
                   aria-label={label}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3 h-3" />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links */}
+          {/* Links — man page style */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-white font-semibold text-xs tracking-widest uppercase mb-5 mono">
-                {category}
+              <h4 className="text-[10px] font-bold text-[#2962ff] tracking-widest uppercase mb-4">
+                [{category}]
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5">
                 {links.map(({ label, href }) => (
                   <li key={label}>
                     <a
                       href={href}
                       target={href !== '#' ? '_blank' : undefined}
                       rel={href !== '#' ? 'noopener noreferrer' : undefined}
-                      className={`text-sm transition-colors duration-200 ${
+                      className={`text-[11px] transition-colors duration-200 tracking-wide ${
                         href === '#'
-                          ? 'text-slate-700 cursor-default'
-                          : 'text-slate-500 hover:text-slate-300'
+                          ? 'text-[#1e293b] cursor-default'
+                          : 'text-[#475569] hover:text-[#2962ff]'
                       }`}
                     >
-                      {label}
+                      {href === '#' ? `# ${label}` : `> ${label}`}
                     </a>
                   </li>
                 ))}
@@ -136,14 +144,18 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-600 text-xs mono">
-            © 2025 Magnetar Finance. All rights reserved.
+        {/* Bottom status bar */}
+        <div className="pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <p className="text-[#334155] text-[10px] tracking-wider">
+            # © 2025 Magnetar Finance — All rights reserved.
           </p>
-          <p className="text-slate-700 text-xs mono">
-            DeFi involves risk. Please do your own research before investing.
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#2962ff] animate-pulse-glow" />
+            <p className="text-[#334155] text-[10px] tracking-wider">
+              # DeFi involves risk. Please do your own research before
+              investing.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

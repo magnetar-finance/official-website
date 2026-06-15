@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Users, Megaphone, ExternalLink } from 'lucide-react';
+import { BookOpen, Users, ExternalLink } from 'lucide-react';
 
 const XIcon = ({ className }) => (
   <svg
@@ -39,18 +39,18 @@ const GITHUB_URL = 'https://github.com/magnetar-finance';
 const channels = [
   {
     icon: XIcon,
-    label: 'Twitter / X',
+    label: 'twitter_x',
     handle: '@mgn_finance',
     description:
       'Follow for announcements, protocol updates, and community highlights.',
-    color: '#e2e8f0',
+    color: '#ffffff',
     href: 'https://x.com/mgn_finance',
     available: true,
   },
   {
     icon: DiscordIcon,
-    label: 'Discord',
-    handle: 'Coming soon',
+    label: 'discord',
+    handle: 'coming_soon',
     description: 'Community hub for traders, LPs, and DeFi builders.',
     color: '#5865f2',
     href: '#',
@@ -58,19 +58,19 @@ const channels = [
   },
   {
     icon: GithubIcon,
-    label: 'GitHub',
+    label: 'github',
     handle: 'magnetar-finance',
     description:
       'Explore open-source code, contribute, and audit our contracts.',
-    color: '#94a3b8',
+    color: '#475569',
     href: GITHUB_URL,
     available: true,
   },
 ];
 
 const resources = [
-  { icon: BookOpen, label: 'Documentation', href: GITHUB_URL },
-  { icon: Users, label: 'Ambassador Program', href: '#' },
+  { icon: BookOpen, label: 'documentation', href: GITHUB_URL },
+  { icon: Users, label: 'ambassador_program', href: '#' },
 ];
 
 export default function Community() {
@@ -86,20 +86,23 @@ export default function Community() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="section-badge text-slate-500 border-slate-600/50 mb-6 inline-flex">
-            Community
+          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+            magnetar@defi:~$ ./connect --community
+          </p>
+          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+            // community
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-5 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mt-5 mb-4 tracking-tight">
             Join the <span className="gradient-text">Magnetar Community</span>
           </h2>
-          <p className="text-slate-500 text-base max-w-lg leading-relaxed">
-            DeFi traders, LPs, and builders — all working toward a better
-            financial system.
+          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+            # DeFi traders, LPs, and builders — all working toward
+            <br /># a better financial system.
           </p>
         </motion.div>
 
         {/* Social channels */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
           {channels.map((ch, i) => {
             const Icon = ch.icon;
             return (
@@ -112,39 +115,45 @@ export default function Community() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`group glass-card border border-white/5 rounded-lg p-6 hover:border-white/10 transition-all duration-300 block ${
-                  !ch.available ? 'opacity-50 cursor-default' : ''
+                className={`group term-card p-5 block transition-all duration-200 ${
+                  !ch.available
+                    ? 'opacity-40 cursor-default'
+                    : 'hover:glow-indigo-sm'
                 }`}
+                style={{ borderRadius: '2px' }}
               >
-                <div className="flex items-start justify-between mb-5">
+                <div className="flex items-start justify-between mb-4">
                   <div
-                    className="w-10 h-10 rounded-md flex items-center justify-center"
+                    className="w-9 h-9 flex items-center justify-center"
                     style={{
-                      background: `${ch.color}12`,
-                      border: `1px solid ${ch.color}22`,
+                      background: `${ch.color}10`,
+                      border: `1px solid ${ch.color}20`,
+                      borderRadius: '2px',
                     }}
                   >
                     <Icon
-                      className="w-4.5 h-4.5"
-                      style={{ color: ch.available ? ch.color : '#475569' }}
+                      className="w-4 h-4"
+                      style={{ color: ch.available ? ch.color : '#334155' }}
                     />
                   </div>
                   {ch.available ? (
-                    <ExternalLink className="w-3.5 h-3.5 text-slate-700 group-hover:text-slate-500 transition-colors" />
+                    <ExternalLink className="w-3 h-3 text-[#334155] group-hover:text-[#2962ff] transition-colors" />
                   ) : (
                     <span
-                      className="mono text-xs text-slate-700 border border-slate-700/50 px-2 py-0.5"
-                      style={{ borderRadius: '3px' }}
+                      className="text-[10px] text-[#334155] border border-[rgba(41,98,255,0.08)] px-2 py-0.5 tracking-wider"
+                      style={{ borderRadius: '2px' }}
                     >
-                      Soon
+                      [SOON]
                     </span>
                   )}
                 </div>
-                <h3 className="font-bold text-white text-sm mb-0.5">
+                <p className="text-xs font-bold text-[#ffffff] mb-0.5 tracking-wide">
                   {ch.label}
-                </h3>
-                <p className="mono text-xs text-slate-600 mb-3">{ch.handle}</p>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                </p>
+                <p className="text-[10px] text-[#334155] mb-3 tracking-wider">
+                  # {ch.handle}
+                </p>
+                <p className="text-xs text-[#475569] leading-relaxed">
                   {ch.description}
                 </p>
               </motion.a>
@@ -166,10 +175,11 @@ export default function Community() {
               href={href}
               target={href !== '#' ? '_blank' : undefined}
               rel={href !== '#' ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-2.5 text-sm font-medium text-slate-500 hover:text-white px-5 py-3 rounded-md glass-card border border-white/5 hover:border-blue-600/25 transition-all duration-200"
+              className="flex items-center gap-2.5 text-xs text-[#475569] hover:text-[#2962ff] px-5 py-3 term-card transition-all duration-200"
+              style={{ borderRadius: '2px' }}
             >
-              <Icon className="w-4 h-4 text-blue-600 shrink-0" />
-              {label}
+              <Icon className="w-3.5 h-3.5 text-[#334155] shrink-0" />
+              ./{label}
             </a>
           ))}
         </motion.div>

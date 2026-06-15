@@ -11,31 +11,31 @@ const pillars = [
     title: 'Live Protocol',
     description:
       'Phase 1 is deployed and operational. The ve(3,3) DEX and LP Aggregator are live on Arc and LitVM.',
-    tag: 'Phase 1 · Live Now',
+    tag: 'phase-1 · live-now',
   },
   {
     icon: Shield,
-    color: '#10b981',
+    color: '#4f46e5',
     title: 'Non-Custodial',
     description:
       'Your assets remain in your wallet at all times. Smart contracts are fully permissionless — no admin keys, no upgradeable proxies.',
-    tag: 'Self-custody · Trustless',
+    tag: 'self-custody · trustless',
   },
   {
     icon: Code2,
-    color: '#06b6d4',
+    color: '#3730a3',
     title: 'Open Source',
     description:
       'All contracts and front-end code are publicly available on GitHub. Audit and verify every function before you interact.',
-    tag: 'Fully verifiable · GitHub',
+    tag: 'fully-verifiable · github',
   },
   {
     icon: Clock,
-    color: '#8b5cf6',
+    color: '#1e1b4b',
     title: 'Sustainable Yield',
     description:
       'Emissions are directed by ve-token holders, not the team. Yield comes from real protocol usage — trading fees and governance bribes.',
-    tag: 've(3,3) · Vote-directed',
+    tag: 've(3,3) · vote-directed',
   },
 ];
 
@@ -52,15 +52,18 @@ export default function EcosystemStats() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <span className="section-badge text-cyan-600 border-cyan-700/40 mb-6 inline-flex">
-            Protocol
+          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+            magnetar@defi:~$ cat ./protocol/principles.md
+          </p>
+          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+            // protocol
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-5 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mt-5 mb-4 tracking-tight">
             Built on <span className="gradient-text">First Principles</span>
           </h2>
-          <p className="text-slate-500 text-base max-w-lg leading-relaxed">
-            No inflated metrics. No vanity numbers. Just a live, growing
-            protocol with real fundamentals.
+          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+            # No inflated metrics. No vanity numbers.
+            <br /># Just a live, growing protocol with real fundamentals.
           </p>
         </motion.div>
 
@@ -75,25 +78,29 @@ export default function EcosystemStats() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-8 border-l border-white/5 first:border-l-0 hover:bg-white/[0.01] transition-colors duration-300"
+                className="group p-7 border-l border-[rgba(41,98,255,0.06)] first:border-l-0 hover:bg-[rgba(41,98,255,0.01)] transition-colors duration-300"
               >
                 <div
-                  className="w-10 h-10 rounded-md flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-105"
+                  className="w-9 h-9 flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105"
                   style={{
-                    background: `${p.color}14`,
+                    background: `${p.color}12`,
                     border: `1px solid ${p.color}28`,
+                    borderRadius: '2px',
                   }}
                 >
-                  <Icon className="w-4.5 h-4.5" style={{ color: p.color }} />
+                  <Icon className="w-4 h-4" style={{ color: p.color }} />
                 </div>
-                <h3 className="text-base font-bold text-white mb-3 tracking-tight">
+                <h3 className="text-sm font-bold text-[#ffffff] mb-3 tracking-tight">
                   {p.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                <p className="text-[#475569] text-xs leading-relaxed mb-4">
                   {p.description}
                 </p>
-                <p className="mono text-xs" style={{ color: `${p.color}80` }}>
-                  {p.tag}
+                <p
+                  className="text-[10px] tracking-wide"
+                  style={{ color: `${p.color}70` }}
+                >
+                  # {p.tag}
                 </p>
               </motion.div>
             );
@@ -106,31 +113,33 @@ export default function EcosystemStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-4 border-t border-white/5 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          className="mt-4 border-t border-[rgba(41,98,255,0.06)] pt-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
         >
           <div className="flex items-center gap-3">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse-glow" />
-            <span className="text-sm text-white font-medium">
-              All Systems Operational
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#2962ff] animate-pulse-glow" />
+            <span className="text-xs font-bold text-[#2962ff] tracking-wider">
+              [OK] all_systems_operational
             </span>
-            <span className="mono text-xs text-slate-600">· Phase 1</span>
+            <span className="text-[10px] text-[#334155] tracking-wider">
+              · phase_1
+            </span>
           </div>
-          <div className="flex items-center gap-6 mono text-xs text-slate-600">
+          <div className="flex items-center gap-6 text-[10px] text-[#334155] tracking-wider">
             <a
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-500 transition-colors"
+              className="hover:text-[#2962ff] transition-colors"
             >
-              Launch App →
+              $ launch_app →
             </a>
             <a
               href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-blue-500 transition-colors"
+              className="hover:text-[#2962ff] transition-colors"
             >
-              GitHub →
+              $ view_github →
             </a>
           </div>
         </motion.div>

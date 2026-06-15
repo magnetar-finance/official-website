@@ -1,23 +1,22 @@
 import { motion } from 'framer-motion';
 
 const chains = [
-  { name: 'Arc', abbr: 'ARC', color: '#6366f1' },
-  { name: 'LitVM', abbr: 'LIT', color: '#10b981' },
+  { name: 'Arc', abbr: 'chain_id:5042002', color: '#4f46e5' },
+  { name: 'LitVM', abbr: 'chain_id:4441', color: '#2962ff' },
 ];
 
 const integrations = [
-  { name: 'Chainlink', category: 'Price Feeds' },
-  { name: 'LayerZero', category: 'Cross-chain' },
-  { name: 'Pyth Network', category: 'Oracles' },
-  { name: 'The Graph', category: 'Indexing' },
-  { name: 'CertiK', category: 'Audited' },
-  { name: 'OpenZeppelin', category: 'Security' },
+  { name: 'Chainlink', category: 'price_feeds' },
+  { name: 'LayerZero', category: 'cross_chain' },
+  { name: 'Pyth Network', category: 'oracles' },
+  { name: 'The Graph', category: 'indexing' },
+  { name: 'CertiK', category: 'audited' },
+  { name: 'OpenZeppelin', category: 'security' },
 ];
 
 export default function Partners() {
   return (
     <section id="partners" className="relative py-28 px-6 overflow-hidden">
-      {/* Subtle divider */}
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
       <div className="max-w-7xl mx-auto">
@@ -26,27 +25,30 @@ export default function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <span className="section-badge text-slate-500 border-slate-600/50 mb-6 inline-flex">
-            Infrastructure
+          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+            magnetar@defi:~$ cat /etc/networks.conf
+          </p>
+          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+            // infrastructure
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 mt-5 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#ffffff] mb-4 mt-5 tracking-tight">
             Built on Arc & LitVM
           </h2>
-          <p className="text-slate-500 text-base max-w-md mx-auto leading-relaxed">
-            Currently deployed on Arc and LitVM. Built on battle-tested
-            infrastructure.
+          <p className="text-[#475569] text-sm max-w-md leading-relaxed">
+            # Currently deployed on Arc and LitVM.
+            <br /># Built on battle-tested infrastructure.
           </p>
         </motion.div>
 
-        {/* Chain logos — minimal text-based identifiers */}
+        {/* Chain identifiers */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 mb-14"
+          className="flex flex-wrap gap-3 mb-12"
         >
           {chains.map((chain, i) => (
             <motion.div
@@ -55,28 +57,27 @@ export default function Partners() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="flex items-center gap-2.5 px-4 py-2.5 rounded-md glass-card border border-white/5 hover:border-white/10 transition-all duration-300 group"
+              className="flex items-center gap-3 px-4 py-2.5 term-card group"
+              style={{ borderRadius: '2px' }}
             >
-              {/* Colored dot as network indicator */}
               <span
-                className="w-2 h-2 rounded-full shrink-0"
+                className="w-1.5 h-1.5 rounded-full shrink-0 animate-pulse-glow"
                 style={{
                   background: chain.color,
-                  boxShadow: `0 0 6px ${chain.color}80`,
+                  boxShadow: `0 0 8px ${chain.color}80`,
                 }}
               />
-              <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors">
+              <span className="text-xs font-bold text-[#ffffff] tracking-wide">
                 {chain.name}
               </span>
-              <span className="text-xs mono text-slate-600 group-hover:text-slate-500 transition-colors">
+              <span className="text-[10px] text-[#334155] tracking-wider">
                 {chain.abbr}
               </span>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Divider */}
-        <div className="section-divider mb-14" />
+        <div className="section-divider mb-12" />
 
         {/* Integration stack */}
         <motion.div
@@ -84,7 +85,7 @@ export default function Partners() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3"
         >
           {integrations.map((item, i) => (
             <motion.div
@@ -93,14 +94,14 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="glass-card border border-white/5 rounded-md p-4 hover:border-indigo-500/20 transition-all duration-300 group text-center"
+              className="term-card p-4 text-center group"
+              style={{ borderRadius: '2px' }}
             >
-              {/* Text logomark */}
-              <p className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors mb-1 leading-tight">
+              <p className="text-xs font-bold text-[#94a3b8] group-hover:text-[#ffffff] transition-colors mb-1 leading-tight tracking-wide">
                 {item.name}
               </p>
-              <p className="text-xs mono text-slate-600 group-hover:text-slate-500 transition-colors">
-                {item.category}
+              <p className="text-[10px] text-[#334155] tracking-wider">
+                # {item.category}
               </p>
             </motion.div>
           ))}
