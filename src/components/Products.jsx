@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { BarChart3, Layers, ArrowRight, Lock } from 'lucide-react';
 import { Zap, Key, Coins, Wallet } from 'lucide-react';
 
-const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const APP_URL = 'https://app.magnetarfi.xyz';
 
 const liveProducts = [
   {

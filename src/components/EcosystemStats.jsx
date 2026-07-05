@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Activity, Shield, Code2, Clock } from 'lucide-react';
 
-const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const APP_URL = 'https://app.magnetarfi.xyz';
 const GITHUB_URL = 'https://github.com/magnetar-finance';
 
 const pillars = [

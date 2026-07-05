@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Wallet, Repeat, TrendingUp, Shield } from 'lucide-react';
 
-const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const APP_URL = 'https://app.magnetarfi.xyz';
 
 const steps = [
   {

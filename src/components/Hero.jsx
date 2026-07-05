@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart3, Layers, Activity } from 'lucide-react';
 
-const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const APP_URL = 'https://app.magnetarfi.xyz';
 const GITHUB_URL = 'https://github.com/magnetar-finance';
 
 export default function Hero() {
@@ -20,7 +20,7 @@ export default function Hero() {
       />
       {/* Center dim bloom */}
       <div
-        className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
+        className="absolute top-1/2 left-1/3 -translate-y-1/2 w-125 h-125 pointer-events-none"
         style={{
           background:
             'radial-gradient(ellipse at 50% 50%, rgba(41,98,255,0.03) 0%, transparent 70%)',
