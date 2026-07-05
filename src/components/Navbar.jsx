@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import logo from '../assets/logo.png';
 
-const APP_URL = 'https://p01--magnetar-finance-dex--h4tf7hg4gml2.code.run/';
+const APP_URL = 'https://app.magnetarfi.xyz';
 const GITHUB_URL = 'https://github.com/magnetar-finance';
 
 const navLinks = [
@@ -32,7 +32,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#000000]/90 backdrop-blur-xl border-b border-[rgba(41,98,255,0.08)] shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
+          ? 'bg-term-bg/90 backdrop-blur-xl border-b border-term-border shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
           : 'bg-transparent'
       }`}
     >
@@ -93,7 +93,7 @@ export default function Navbar() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#000000] bg-[#2962ff] hover:bg-[#1d4fdb] px-4 py-2 tracking-widest uppercase transition-all duration-150"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-term-bg bg-[#2962ff] hover:bg-[#1d4fdb] px-4 py-2 tracking-widest uppercase transition-all duration-150"
             style={{
               borderRadius: '2px',
               boxShadow: '0 0 20px rgba(41,98,255,0.25)',
@@ -121,10 +121,10 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden border-t border-[rgba(41,98,255,0.08)] bg-[#000000]/98 backdrop-blur-xl"
+            className="md:hidden border-t border-term-border bg-term-bg/98 backdrop-blur-xl"
           >
             <div className="px-6 py-5 flex flex-col gap-4">
-              <p className="text-[10px] text-[#334155] tracking-widest uppercase border-b border-[rgba(41,98,255,0.08)] pb-3 mb-1">
+              <p className="text-[10px] text-[#334155] tracking-widest uppercase border-b border-term-border pb-3 mb-1">
                 magnetar@defi:~$ ls -la ./nav
               </p>
               {navLinks.map((link) =>
@@ -152,7 +152,7 @@ export default function Navbar() {
                 href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-[#000000] bg-[#2962ff] text-center py-3 mt-1 inline-flex items-center justify-center gap-2 tracking-widest uppercase"
+                className="text-xs font-bold text-term-bg bg-[#2962ff] text-center py-3 mt-1 inline-flex items-center justify-center gap-2 tracking-widest uppercase"
                 style={{ borderRadius: '2px' }}
               >
                 launch_app <ArrowUpRight className="w-3.5 h-3.5" />
