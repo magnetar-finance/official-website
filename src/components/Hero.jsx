@@ -10,20 +10,20 @@ export default function Hero() {
       {/* Background layers */}
       <div className="absolute inset-0 grid-bg opacity-100" />
 
-      {/* Phosphor green bloom — top right */}
+      {/* Phosphor cyan bloom — top right */}
       <div
         className="absolute top-0 right-0 w-[55%] h-[70%] pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 100% 0%, rgba(41,98,255,0.06) 0%, transparent 60%)',
+            'radial-gradient(ellipse at 100% 0%, rgba(31,199,212,0.1) 0%, transparent 60%)',
         }}
       />
-      {/* Center dim bloom */}
+      {/* Center pink bloom */}
       <div
         className="absolute top-1/2 left-1/3 -translate-y-1/2 w-125 h-125 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 50%, rgba(41,98,255,0.03) 0%, transparent 70%)',
+            'radial-gradient(ellipse at 50% 50%, rgba(237,75,158,0.05) 0%, transparent 70%)',
         }}
       />
 
@@ -32,7 +32,7 @@ export default function Hero() {
         className="absolute left-0 top-0 bottom-0 w-px opacity-20"
         style={{
           background:
-            'linear-gradient(to bottom, transparent, #2962ff, transparent)',
+            'linear-gradient(to bottom, transparent, #1fc7d4, transparent)',
         }}
       />
 
@@ -40,7 +40,7 @@ export default function Hero() {
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
         style={{
-          background: 'linear-gradient(to bottom, transparent, #000000)',
+          background: 'linear-gradient(to bottom, transparent, #08060b)',
         }}
       />
 
@@ -54,14 +54,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-3 mb-10 px-4 py-2 border border-[rgba(41,98,255,0.2)] bg-[rgba(41,98,255,0.04)] hover:bg-[rgba(41,98,255,0.07)] transition-all duration-300 group cursor-pointer"
-            style={{ borderRadius: '2px' }}
+            className="inline-flex items-center gap-3 mb-10 px-5 py-2 border border-[rgba(31,199,212,0.3)] bg-[rgba(31,199,212,0.08)] hover:bg-[rgba(31,199,212,0.15)] hover:scale-105 transition-all duration-300 group cursor-pointer shadow-[0_0_15px_rgba(31,199,212,0.15)]"
+            style={{ borderRadius: '9999px' }}
           >
-            <span className="flex h-1.5 w-1.5 rounded-full bg-[#2962ff] animate-pulse-glow" />
-            <span className="text-[10px] text-[#475569] tracking-widest uppercase font-medium">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#1fc7d4] animate-pulse-glow" />
+            <span className="text-[10px] text-[#b8add2] tracking-widest uppercase font-bold">
               [ONLINE] ve(3,3) DEX — now live
             </span>
-            <span className="text-[#2962ff] text-[10px] font-bold ml-1 group-hover:text-[#1d4fdb] transition-colors flex items-center gap-1 tracking-widest">
+            <span className="text-[#1fc7d4] text-[10px] font-bold ml-1 group-hover:text-[#ed4b9e] transition-colors flex items-center gap-1 tracking-widest">
               OPEN_APP <ArrowRight className="w-3 h-3 inline" />
             </span>
           </motion.a>
@@ -127,30 +127,33 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="border border-[rgba(41,98,255,0.07)] p-4 inline-block"
-            style={{ borderRadius: '2px', background: 'rgba(41,98,255,0.02)' }}
+            className="border border-[rgba(31,199,212,0.2)] p-5 inline-block term-card"
+            style={{
+              borderRadius: '24px',
+              background: 'rgba(31,199,212,0.05)',
+            }}
           >
-            <p className="text-[10px] text-[#334155] tracking-widest mb-3 uppercase">
+            <p className="text-[10px] text-[#b8add2] tracking-widest mb-3 uppercase font-bold">
               $ cat ./status.json
             </p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
               <div className="flex gap-2 items-baseline">
-                <span className="text-[10px] text-[#334155] uppercase tracking-wider">
+                <span className="text-[10px] text-[#b8add2] uppercase tracking-wider">
                   STATUS:
                 </span>
-                <span className="text-sm font-bold text-[#2962ff]">
+                <span className="text-sm font-bold text-[#1fc7d4]">
                   operational
                 </span>
               </div>
               <div className="flex gap-2 items-baseline">
-                <span className="text-[10px] text-[#334155] uppercase tracking-wider">
+                <span className="text-[10px] text-[#b8add2] uppercase tracking-wider">
                   NETWORKS:
                 </span>
                 <span className="text-sm font-bold text-[#ffffff]">2</span>
-                <span className="text-[10px] text-[#334155]">(arc, litvm)</span>
+                <span className="text-[10px] text-[#b8add2]">(arc, litvm)</span>
               </div>
               <div className="flex gap-2 items-baseline">
-                <span className="text-[10px] text-[#334155] uppercase tracking-wider">
+                <span className="text-[10px] text-[#b8add2] uppercase tracking-wider">
                   COST:
                 </span>
                 <span className="text-sm font-bold text-[#ffffff]">$0</span>
@@ -159,7 +162,7 @@ export default function Hero() {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] text-[#334155] hover:text-[#2962ff] transition-colors tracking-wider uppercase"
+                className="text-[10px] text-[#b8add2] hover:text-[#1fc7d4] transition-colors tracking-wider uppercase font-bold"
               >
                 [github] →
               </a>
@@ -174,7 +177,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.5 }}
           className="hidden lg:flex flex-col gap-2 absolute right-6 top-1/2 -translate-y-1/2 w-72"
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-2">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-2 font-bold">
             $ ls ./products/
           </p>
           {[
@@ -182,19 +185,19 @@ export default function Hero() {
               icon: BarChart3,
               label: 've(3,3)_dex',
               desc: 'Vote-escrow AMM · gauge emissions · bribes',
-              color: '#2962ff',
+              color: '#1fc7d4',
             },
             {
               icon: Layers,
               label: 'lp_aggregator',
               desc: 'Best-rate routing across all major DEXes',
-              color: '#4f46e5',
+              color: '#ed4b9e',
             },
             {
               icon: Activity,
               label: 'protocol_status',
               desc: 'Phase 1 deployed · all systems operational',
-              color: '#1d4fdb',
+              color: '#7645d9',
               isStatus: true,
             },
           ].map(({ icon: Icon, label, desc, color, isStatus }) => (
@@ -203,31 +206,31 @@ export default function Hero() {
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-3 px-4 py-3 term-card hover:glow-indigo-sm transition-all duration-200"
-              style={{ borderRadius: '2px' }}
+              className="group flex items-center gap-3 px-4 py-3 term-card transition-all duration-200"
+              style={{ borderRadius: '24px' }}
             >
               <div
-                className="w-8 h-8 flex items-center justify-center shrink-0"
+                className="w-10 h-10 flex items-center justify-center shrink-0"
                 style={{
-                  background: `${color}12`,
-                  border: `1px solid ${color}25`,
-                  borderRadius: '2px',
+                  background: `${color}15`,
+                  border: `1px solid ${color}30`,
+                  borderRadius: '9999px',
                 }}
               >
-                <Icon className="w-3.5 h-3.5" style={{ color }} />
+                <Icon className="w-4 h-4" style={{ color }} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-bold text-[#ffffff] mb-0.5 tracking-wide">
+                <p className="text-sm font-bold text-[#ffffff] mb-0.5 tracking-wide">
                   {label}
                 </p>
-                <p className="text-[10px] text-[#334155] leading-tight">
+                <p className="text-[10px] text-[#b8add2] leading-tight">
                   {desc}
                 </p>
               </div>
               {isStatus ? (
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2962ff] animate-pulse-glow shrink-0" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[#1fc7d4] animate-pulse-glow shrink-0" />
               ) : (
-                <ArrowRight className="w-3 h-3 text-[#334155] group-hover:text-[#2962ff] shrink-0 transition-colors" />
+                <ArrowRight className="w-4 h-4 text-[#b8add2] group-hover:text-[#1fc7d4] shrink-0 transition-colors" />
               )}
             </a>
           ))}

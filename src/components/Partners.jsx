@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 
 const chains = [
-  { name: 'Arc', abbr: 'chain_id:5042002', color: '#4f46e5' },
-  { name: 'LitVM', abbr: 'chain_id:4441', color: '#2962ff' },
+  { name: 'Arc', abbr: 'chain_id:5042002', color: '#1fc7d4' },
+  { name: 'LitVM', abbr: 'chain_id:4441', color: '#ed4b9e' },
 ];
 
 const integrations = [
@@ -27,16 +27,16 @@ export default function Partners() {
           transition={{ duration: 0.7 }}
           className="mb-14"
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-4 font-bold">
             magnetar@defi:~$ cat /etc/networks.conf
           </p>
-          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+          <span className="section-badge mb-5 inline-flex">
             // infrastructure
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-[#ffffff] mb-4 mt-5 tracking-tight">
             Built on Arc & LitVM
           </h2>
-          <p className="text-[#475569] text-sm max-w-md leading-relaxed">
+          <p className="text-[#b8add2] text-sm max-w-md leading-relaxed">
             # Currently deployed on Arc and LitVM.
             <br /># Built on battle-tested infrastructure.
           </p>
@@ -57,20 +57,19 @@ export default function Partners() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06 }}
-              className="flex items-center gap-3 px-4 py-2.5 term-card group"
-              style={{ borderRadius: '2px' }}
+              className="flex items-center gap-3 px-5 py-3 term-card group"
             >
               <span
-                className="w-1.5 h-1.5 rounded-full shrink-0 animate-pulse-glow"
+                className="w-2 h-2 rounded-full shrink-0 animate-pulse-glow"
                 style={{
                   background: chain.color,
-                  boxShadow: `0 0 8px ${chain.color}80`,
+                  boxShadow: `0 0 10px ${chain.color}80`,
                 }}
               />
-              <span className="text-xs font-bold text-[#ffffff] tracking-wide">
+              <span className="text-sm font-bold text-[#ffffff] tracking-wide">
                 {chain.name}
               </span>
-              <span className="text-[10px] text-[#334155] tracking-wider">
+              <span className="text-[10px] text-[#b8add2] tracking-wider font-medium">
                 {chain.abbr}
               </span>
             </motion.div>
@@ -94,13 +93,12 @@ export default function Partners() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07 }}
-              className="term-card p-4 text-center group"
-              style={{ borderRadius: '2px' }}
+              className="term-card p-5 text-center group"
             >
-              <p className="text-xs font-bold text-[#94a3b8] group-hover:text-[#ffffff] transition-colors mb-1 leading-tight tracking-wide">
+              <p className="text-xs font-bold text-[#b8add2] group-hover:text-[#ffffff] transition-colors mb-1.5 leading-tight tracking-wide">
                 {item.name}
               </p>
-              <p className="text-[10px] text-[#334155] tracking-wider">
+              <p className="text-[10px] text-[#1fc7d4] tracking-wider font-medium">
                 # {item.category}
               </p>
             </motion.div>

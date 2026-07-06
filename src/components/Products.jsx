@@ -8,7 +8,7 @@ const APP_URL = 'https://app.magnetarfi.xyz';
 const liveProducts = [
   {
     icon: BarChart3,
-    color: '#2962ff',
+    color: '#1fc7d4',
     label: 've(3,3) DEX',
     cmdName: 'dex_v1',
     description:
@@ -23,7 +23,7 @@ const liveProducts = [
   },
   {
     icon: Layers,
-    color: '#4f46e5',
+    color: '#ed4b9e',
     label: 'LP Aggregator',
     cmdName: 'lp_aggregator',
     description:
@@ -33,7 +33,7 @@ const liveProducts = [
   },
   {
     icon: Key,
-    color: '#7c3aed',
+    color: '#7645d9',
     label: 'Lock Rentals',
     cmdName: 'lock_rentals',
     description:
@@ -91,16 +91,16 @@ export default function Products() {
           transition={{ duration: 0.6 }}
           className="mb-20"
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-4 font-bold">
             magnetar@defi:~$ ls -la ./products/
           </p>
-          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
+          <span className="section-badge text-[#1fc7d4] border-[rgba(31,199,212,0.3)] mb-5 inline-flex">
             // products
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] leading-tight mb-4 mt-5 tracking-tight">
             Built for <span className="gradient-text">DeFi Natives</span>
           </h2>
-          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+          <p className="text-[#b8add2] text-sm max-w-lg leading-relaxed">
             # Two core products live today, with more DeFi infrastructure
             <br /># launching throughout 2026.
           </p>
@@ -121,13 +121,12 @@ export default function Products() {
                 key={product.label}
                 variants={cardVariants}
                 className="group term-card-elevated p-7 relative overflow-hidden"
-                style={{ borderRadius: '2px' }}
               >
                 {/* Subtle hover glow */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{
-                    background: `radial-gradient(ellipse 60% 40% at 50% 0%, ${product.color}06, transparent)`,
+                    background: `radial-gradient(ellipse 60% 40% at 50% 0%, ${product.color}15, transparent)`,
                   }}
                 />
 
@@ -135,16 +134,16 @@ export default function Products() {
                   {/* Top row */}
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <p className="text-[10px] text-[#334155] tracking-widest mb-1.5">
+                      <p className="text-[10px] text-[#b8add2] tracking-widest mb-1.5 font-bold">
                         $ ./{product.cmdName} --status
                       </p>
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         <div
-                          className="w-9 h-9 flex items-center justify-center"
+                          className="w-10 h-10 flex items-center justify-center"
                           style={{
-                            background: `${product.color}14`,
-                            border: `1px solid ${product.color}30`,
-                            borderRadius: '2px',
+                            background: `${product.color}15`,
+                            border: `1px solid ${product.color}40`,
+                            borderRadius: '9999px',
                           }}
                         >
                           <Icon
@@ -152,32 +151,32 @@ export default function Products() {
                             style={{ color: product.color }}
                           />
                         </div>
-                        <h3 className="text-lg font-bold text-[#ffffff] tracking-tight">
+                        <h3 className="text-xl font-bold text-[#ffffff] tracking-tight">
                           {product.label}
                         </h3>
                       </div>
                     </div>
                     <span
-                      className="flex items-center gap-1.5 text-[10px] font-bold text-[#2962ff] bg-[rgba(41,98,255,0.08)] border border-[rgba(41,98,255,0.25)] px-2.5 py-1.5 tracking-widest"
-                      style={{ borderRadius: '2px' }}
+                      className="flex items-center gap-1.5 text-[10px] font-bold text-[#1fc7d4] bg-[rgba(31,199,212,0.1)] border border-[rgba(31,199,212,0.3)] px-3 py-1.5 tracking-widest"
+                      style={{ borderRadius: '9999px' }}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#2962ff] animate-pulse-glow" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#1fc7d4] animate-pulse-glow" />
                       [LIVE]
                     </span>
                   </div>
 
                   {/* Description */}
-                  <p className="text-[#475569] text-xs leading-relaxed mb-5">
+                  <p className="text-[#b8add2] text-xs leading-relaxed mb-6 font-medium">
                     {product.description}
                   </p>
 
                   {/* Feature flags — CLI style */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2 mb-8">
                     {product.features.map((f) => (
                       <span
                         key={f}
-                        className="text-[10px] text-[#334155] px-2.5 py-1 border border-[rgba(41,98,255,0.08)] bg-[rgba(41,98,255,0.02)] tracking-wide"
-                        style={{ borderRadius: '2px' }}
+                        className="text-[10px] text-[#1fc7d4] px-3 py-1.5 border border-[rgba(31,199,212,0.2)] bg-[rgba(31,199,212,0.05)] tracking-wide font-bold"
+                        style={{ borderRadius: '9999px' }}
                       >
                         {f}
                       </span>
@@ -189,13 +188,14 @@ export default function Products() {
                     href={product.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs font-bold text-[#000000] bg-[#2962ff] hover:bg-[#1d4fdb] px-5 py-2.5 transition-all duration-150 group-hover:gap-3 tracking-widest uppercase"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-[#ffffff] px-6 py-3 transition-all duration-300 group-hover:gap-3 tracking-widest uppercase shadow-[0_4px_15px_rgba(31,199,212,0.3)] hover:shadow-[0_6px_25px_rgba(237,75,158,0.4)]"
                     style={{
-                      borderRadius: '2px',
-                      boxShadow: '0 0 15px rgba(41,98,255,0.2)',
+                      borderRadius: '9999px',
+                      background:
+                        'linear-gradient(135deg, #1fc7d4 0%, #7645d9 100%)',
                     }}
                   >
-                    $ open_app <ArrowRight className="w-3.5 h-3.5" />
+                    $ open_app <ArrowRight className="w-4 h-4" />
                   </a>
                 </div>
               </motion.div>
@@ -210,34 +210,33 @@ export default function Products() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.15 }}
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-3">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-3 font-bold">
             # upcoming modules — access restricted
           </p>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             {comingSoon.map(({ icon: Icon, label, desc }) => (
               <div
                 key={label}
-                className="term-card p-5 opacity-35 select-none"
-                style={{ borderRadius: '2px' }}
+                className="term-card p-6 opacity-40 hover:opacity-70 transition-opacity select-none"
               >
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-5">
                   <div
-                    className="w-8 h-8 flex items-center justify-center bg-[rgba(41,98,255,0.04)] border border-[rgba(41,98,255,0.08)]"
-                    style={{ borderRadius: '2px' }}
+                    className="w-10 h-10 flex items-center justify-center bg-[rgba(31,199,212,0.05)] border border-[rgba(31,199,212,0.1)]"
+                    style={{ borderRadius: '9999px' }}
                   >
-                    <Icon className="w-3.5 h-3.5 text-[#334155]" />
+                    <Icon className="w-4 h-4 text-[#b8add2]" />
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Lock className="w-2.5 h-2.5 text-[#334155]" />
-                    <span className="text-[10px] text-[#334155] tracking-wider">
+                    <Lock className="w-3 h-3 text-[#ed4b9e]" />
+                    <span className="text-[10px] text-[#ed4b9e] tracking-wider font-bold">
                       [LOCKED]
                     </span>
                   </div>
                 </div>
-                <p className="text-xs font-bold text-[#475569] mb-1.5 tracking-wide">
+                <p className="text-sm font-bold text-[#ffffff] mb-2 tracking-wide">
                   {label}
                 </p>
-                <p className="text-[10px] text-[#334155] leading-relaxed">
+                <p className="text-[11px] text-[#b8add2] leading-relaxed">
                   {desc}
                 </p>
               </div>

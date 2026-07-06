@@ -32,9 +32,10 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-term-bg/90 backdrop-blur-xl border-b border-term-border shadow-[0_4px_30px_rgba(0,0,0,0.8)]'
+          ? 'backdrop-blur-2xl border-b border-[rgba(255,255,255,0.06)] shadow-[0_8px_32px_rgba(0,0,0,0.6)]'
           : 'bg-transparent'
       }`}
+      style={scrolled ? { background: 'rgba(8,6,11,0.85)' } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
         {/* Logo */}
@@ -45,14 +46,14 @@ export default function Navbar() {
             className="w-7 h-7 object-contain"
             style={{
               filter:
-                'drop-shadow(0 0 6px rgba(41,98,255,0.5)) saturate(0) brightness(10)',
+                'drop-shadow(0 0 8px rgba(31,199,212,0.6)) saturate(0) brightness(10)',
             }}
           />
           <span className="font-bold text-sm tracking-tight">
-            <span className="text-[#475569]">&gt; </span>
+            <span className="text-[#b8add2]">&gt; </span>
             <span className="text-[#ffffff]">magnetar</span>
-            <span className="text-[#2962ff]">_finance</span>
-            <span className="text-[#2962ff] cursor-blink">▌</span>
+            <span className="text-[#1fc7d4]">_finance</span>
+            <span className="text-[#ed4b9e] cursor-blink">▌</span>
           </span>
         </Link>
 
@@ -63,7 +64,7 @@ export default function Navbar() {
               <Link
                 key={link.label}
                 to={link.href}
-                className="text-xs text-[#475569] hover:text-[#2962ff] transition-colors duration-200 tracking-wider uppercase"
+                className="text-xs text-[#b8add2] hover:text-[#1fc7d4] transition-colors duration-200 tracking-wider uppercase font-medium"
               >
                 ./{link.label}
               </Link>
@@ -71,7 +72,7 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-xs text-[#475569] hover:text-[#2962ff] transition-colors duration-200 tracking-wider uppercase"
+                className="text-xs text-[#b8add2] hover:text-[#1fc7d4] transition-colors duration-200 tracking-wider uppercase font-medium"
               >
                 ./{link.label}
               </a>
@@ -85,7 +86,7 @@ export default function Navbar() {
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-[#334155] hover:text-[#475569] transition-colors duration-200 tracking-wider"
+            className="text-xs text-[#b8add2] hover:text-[#1fc7d4] transition-colors duration-200 tracking-wider font-medium"
           >
             [github]
           </a>
@@ -93,10 +94,11 @@ export default function Navbar() {
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-term-bg bg-[#2962ff] hover:bg-[#1d4fdb] px-4 py-2 tracking-widest uppercase transition-all duration-150"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-white px-5 py-2.5 tracking-widest uppercase transition-all duration-200 hover:scale-105 hover:shadow-[0_6px_20px_rgba(118,69,217,0.4)]"
             style={{
-              borderRadius: '2px',
-              boxShadow: '0 0 20px rgba(41,98,255,0.25)',
+              borderRadius: '9999px',
+              background: 'linear-gradient(135deg, #1fc7d4 0%, #7645d9 100%)',
+              boxShadow: '0 4px 15px rgba(31,199,212,0.3)',
             }}
           >
             launch_app
@@ -106,7 +108,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-[#475569] hover:text-[#2962ff] transition-colors p-1"
+          className="md:hidden text-[#b8add2] hover:text-[#1fc7d4] transition-colors p-1"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -121,10 +123,11 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden border-t border-term-border bg-term-bg/98 backdrop-blur-xl"
+            className="md:hidden border-t border-[rgba(255,255,255,0.06)] backdrop-blur-2xl"
+            style={{ background: 'rgba(8,6,11,0.95)' }}
           >
             <div className="px-6 py-5 flex flex-col gap-4">
-              <p className="text-[10px] text-[#334155] tracking-widest uppercase border-b border-term-border pb-3 mb-1">
+              <p className="text-[10px] text-[#b8add2] tracking-widest uppercase border-b border-[rgba(255,255,255,0.06)] pb-3 mb-1 font-bold">
                 magnetar@defi:~$ ls -la ./nav
               </p>
               {navLinks.map((link) =>
@@ -132,7 +135,7 @@ export default function Navbar() {
                   <Link
                     key={link.label}
                     to={link.href}
-                    className="text-xs text-[#475569] hover:text-[#2962ff] transition-colors py-1 tracking-wider"
+                    className="text-xs text-[#b8add2] hover:text-[#1fc7d4] transition-colors py-1.5 tracking-wider font-medium"
                     onClick={() => setMenuOpen(false)}
                   >
                     {'>'} {link.label}
@@ -141,7 +144,7 @@ export default function Navbar() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="text-xs text-[#475569] hover:text-[#2962ff] transition-colors py-1 tracking-wider"
+                    className="text-xs text-[#b8add2] hover:text-[#1fc7d4] transition-colors py-1.5 tracking-wider font-medium"
                     onClick={() => setMenuOpen(false)}
                   >
                     {'>'} {link.label}
@@ -152,8 +155,13 @@ export default function Navbar() {
                 href={APP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-bold text-term-bg bg-[#2962ff] text-center py-3 mt-1 inline-flex items-center justify-center gap-2 tracking-widest uppercase"
-                style={{ borderRadius: '2px' }}
+                className="text-xs font-bold text-white text-center py-3.5 mt-1 inline-flex items-center justify-center gap-2 tracking-widest uppercase hover:scale-105 transition-transform duration-200"
+                style={{
+                  borderRadius: '9999px',
+                  background:
+                    'linear-gradient(135deg, #1fc7d4 0%, #7645d9 100%)',
+                  boxShadow: '0 4px 15px rgba(31,199,212,0.3)',
+                }}
               >
                 launch_app <ArrowUpRight className="w-3.5 h-3.5" />
               </a>

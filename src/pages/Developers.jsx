@@ -151,7 +151,7 @@ const terminalStyle = {
   ...vscDarkPlus,
   'pre[class*="language-"]': {
     ...vscDarkPlus['pre[class*="language-"]'],
-    background: '#03030e',
+    background: '#0d0b14',
     margin: 0,
     padding: '1rem',
     borderRadius: 0,
@@ -184,11 +184,17 @@ export default function Developers() {
   const currentDoc = DOCS_CONFIG[selectedDoc];
 
   return (
-    <div className="min-h-screen pt-14 flex bg-[#000000]">
+    <div className="min-h-screen pt-14 flex" style={{ background: '#08060b' }}>
       {/* ── Sidebar: File Tree ── */}
-      <aside className="w-60 bg-[#000000] border-r border-[rgba(41,98,255,0.07)] fixed left-0 top-14 bottom-0 overflow-y-auto z-10">
-        <div className="p-4 border-b border-[rgba(41,98,255,0.07)]">
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase">
+      <aside
+        className="w-60 fixed left-0 top-14 bottom-0 overflow-y-auto z-10 border-r border-[rgba(255,255,255,0.06)]"
+        style={{
+          background: 'rgba(13,11,20,0.95)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        <div className="p-4 border-b border-[rgba(255,255,255,0.06)]">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase font-bold">
             ~/docs/magnetar
           </p>
         </div>
@@ -196,8 +202,7 @@ export default function Developers() {
           <nav className="space-y-5">
             {DOC_CATEGORIES.map((category, catIdx) => (
               <div key={category.name}>
-                {/* Directory name */}
-                <p className="text-[10px] font-bold text-[#4f46e5] tracking-widest mb-2 px-1">
+                <p className="text-[10px] font-bold text-[#1fc7d4] tracking-widest mb-2 px-1">
                   {catIdx === DOC_CATEGORIES.length - 1 ? '└─' : '├─'}{' '}
                   {category.name}
                 </p>
@@ -212,26 +217,26 @@ export default function Developers() {
                         onClick={() => setSelectedDoc(key)}
                         className={`w-full text-left text-[11px] py-1.5 pl-5 pr-2 transition-all duration-150 flex items-center justify-between gap-2 ${
                           isActive
-                            ? 'text-[#2962ff] bg-[rgba(41,98,255,0.06)]'
+                            ? 'text-[#1fc7d4] bg-[rgba(31,199,212,0.08)]'
                             : config.isComingSoon
-                            ? 'text-[#1e293b] hover:text-[#334155]'
-                            : 'text-[#475569] hover:text-[#ffffff] hover:bg-[rgba(41,98,255,0.03)]'
+                            ? 'text-[#444155] hover:text-[#666171]'
+                            : 'text-[#b8add2] hover:text-[#ffffff] hover:bg-[rgba(255,255,255,0.04)]'
                         }`}
-                        style={{ borderRadius: '2px' }}
+                        style={{ borderRadius: '8px' }}
                       >
                         <span className="flex items-center gap-1.5 truncate">
-                          <span className="text-[#1e293b] shrink-0">
+                          <span className="text-[#444155] shrink-0">
                             {isLast ? '└─' : '├─'}
                           </span>
                           {isActive && (
-                            <span className="text-[#2962ff]">▶</span>
+                            <span className="text-[#ed4b9e]">▶</span>
                           )}
                           <span className="truncate tracking-wide">
                             {config.filename || config.breadcrumb}
                           </span>
                         </span>
                         {config.isComingSoon && (
-                          <span className="text-[9px] text-[#1e293b] shrink-0 tracking-wider">
+                          <span className="text-[9px] text-[#ed4b9e] shrink-0 tracking-wider font-bold">
                             [WIP]
                           </span>
                         )}
@@ -257,34 +262,34 @@ export default function Developers() {
             className="max-w-4xl mx-auto px-8 py-10"
           >
             {/* Breadcrumb path */}
-            <div className="flex items-center gap-1.5 text-[10px] text-[#334155] mb-8 tracking-widest">
+            <div className="flex items-center gap-1.5 text-[10px] text-[#b8add2] mb-8 tracking-widest font-bold">
               <span>~/docs/magnetar</span>
               <span>/</span>
-              <span className="text-[#4f46e5]">{currentDoc.breadcrumb}</span>
+              <span className="text-[#1fc7d4]">{currentDoc.breadcrumb}</span>
             </div>
 
             {/* File header bar */}
             <div
-              className="flex items-center gap-2 px-4 py-2 mb-0 border-b border-[rgba(41,98,255,0.1)] bg-[#03030e]"
+              className="flex items-center gap-2 px-6 py-3 border-b border-[rgba(255,255,255,0.06)] bg-[rgba(13,11,20,0.6)] backdrop-blur-md"
               style={{
-                borderRadius: '2px 2px 0 0',
-                borderTop: '1px solid rgba(41,98,255,0.1)',
-                borderLeft: '1px solid rgba(41,98,255,0.1)',
-                borderRight: '1px solid rgba(41,98,255,0.1)',
+                borderRadius: '24px 24px 0 0',
+                borderTop: '1px solid rgba(255,255,255,0.06)',
+                borderLeft: '1px solid rgba(255,255,255,0.06)',
+                borderRight: '1px solid rgba(255,255,255,0.06)',
               }}
             >
               <div className="flex gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1e293b]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1e293b]" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[rgba(41,98,255,0.3)]" />
+                <span className="w-3 h-3 rounded-full bg-[#444155]" />
+                <span className="w-3 h-3 rounded-full bg-[#444155]" />
+                <span className="w-3 h-3 rounded-full bg-[#ed4b9e]" />
               </div>
-              <span className="text-[10px] text-[#334155] ml-2 tracking-widest flex-1 text-center">
+              <span className="text-[10px] text-[#b8add2] ml-2 tracking-widest flex-1 text-center font-bold">
                 {currentDoc.breadcrumb}
               </span>
               {currentDoc.isRecommended && (
                 <span
-                  className="text-[9px] font-bold text-[#2962ff] bg-[rgba(41,98,255,0.08)] border border-[rgba(41,98,255,0.2)] px-2 py-0.5 tracking-widest"
-                  style={{ borderRadius: '2px' }}
+                  className="text-[9px] font-bold text-[#ed4b9e] bg-[rgba(237,75,158,0.1)] border border-[rgba(237,75,158,0.3)] px-3 py-1 tracking-widest"
+                  style={{ borderRadius: '9999px' }}
                 >
                   RECOMMENDED
                 </span>
@@ -293,48 +298,55 @@ export default function Developers() {
 
             {/* Content area */}
             <div
-              className="border border-[rgba(41,98,255,0.07)] border-t-0 p-8"
-              style={{ borderRadius: '0 0 2px 2px', background: '#05050f' }}
+              className="border border-[rgba(255,255,255,0.06)] border-t-0 p-8"
+              style={{
+                borderRadius: '0 0 24px 24px',
+                background: 'rgba(39,38,44,0.25)',
+                backdropFilter: 'blur(12px)',
+              }}
             >
               {/* Title + description */}
-              <h1 className="text-2xl font-bold text-[#ffffff] mb-2 tracking-tight">
+              <h1 className="text-3xl font-bold text-[#ffffff] mb-3 tracking-tight">
                 {currentDoc.title}
               </h1>
-              <p className="text-xs text-[#475569] mb-8 leading-relaxed">
+              <p className="text-sm text-[#b8add2] mb-8 leading-relaxed">
                 # {currentDoc.description}
               </p>
 
               {currentDoc.isComingSoon ? (
                 /* ── Coming Soon ── */
                 <div
-                  className="py-16 text-center border border-[rgba(41,98,255,0.07)] bg-[rgba(41,98,255,0.01)]"
-                  style={{ borderRadius: '2px' }}
+                  className="py-16 text-center border border-[rgba(255,255,255,0.06)] bg-[rgba(31,199,212,0.04)]"
+                  style={{ borderRadius: '24px' }}
                 >
                   <div className="inline-flex flex-col items-center gap-4">
                     <div
-                      className="w-12 h-12 border border-[rgba(41,98,255,0.2)] flex items-center justify-center"
-                      style={{ borderRadius: '2px' }}
+                      className="w-16 h-16 border border-[rgba(31,199,212,0.4)] flex items-center justify-center shadow-[0_0_20px_rgba(31,199,212,0.15)]"
+                      style={{
+                        borderRadius: '9999px',
+                        background: 'rgba(31,199,212,0.08)',
+                      }}
                     >
-                      <span className="text-xl text-[#2962ff] cursor-blink">
+                      <span className="text-2xl text-[#1fc7d4] cursor-blink">
                         ▋
                       </span>
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-[#ffffff] mb-2 tracking-tight">
+                      <p className="text-base font-bold text-[#ffffff] mb-2 tracking-tight">
                         [IN DEVELOPMENT]
                       </p>
-                      <p className="text-[10px] text-[#334155] tracking-widest mb-4">
+                      <p className="text-[10px] text-[#ed4b9e] font-bold tracking-widest mb-4">
                         # module not yet deployed
                       </p>
-                      <div className="text-[11px] text-[#334155] space-y-1 text-left inline-block">
+                      <div className="text-[11px] text-[#b8add2] space-y-1 text-left inline-block">
                         <p>$ git status {currentDoc.filename}</p>
-                        <p className="text-[#1e293b]">
+                        <p className="text-[#666171]">
                           &gt; branch: dev/upcoming
                         </p>
-                        <p className="text-[#1e293b]">
+                        <p className="text-[#666171]">
                           &gt; status: work-in-progress
                         </p>
-                        <p className="text-[#1e293b]">
+                        <p className="text-[#666171]">
                           &gt; docs: pending-publication
                         </p>
                       </div>
@@ -350,56 +362,55 @@ export default function Developers() {
                       components={{
                         h1: ({ ...props }) => (
                           <h1
-                            className="text-xl font-bold text-[#ffffff] mb-4 mt-8 first:mt-0 tracking-tight"
+                            className="text-2xl font-bold text-[#ffffff] mb-4 mt-8 first:mt-0 tracking-tight"
                             {...props}
                           />
                         ),
                         h2: ({ ...props }) => (
                           <h2
-                            className="text-base font-bold text-[#ffffff] mb-3 mt-8 pb-2 border-b border-[rgba(41,98,255,0.07)] tracking-tight"
+                            className="text-xl font-bold text-[#ffffff] mb-4 mt-8 pb-3 border-b border-[rgba(255,255,255,0.06)] tracking-tight"
                             {...props}
                           />
                         ),
                         h3: ({ ...props }) => (
                           <h3
-                            className="text-sm font-bold text-[#94a3b8] mb-2 mt-6 tracking-wide"
+                            className="text-base font-bold text-[#1fc7d4] mb-3 mt-6 tracking-wide"
                             {...props}
                           />
                         ),
                         p: ({ ...props }) => (
                           <p
-                            className="text-xs text-[#475569] mb-4 leading-relaxed"
+                            className="text-sm text-[#b8add2] mb-5 leading-relaxed"
                             {...props}
                           />
                         ),
                         ul: ({ ...props }) => (
                           <ul
-                            className="pl-4 text-[#475569] mb-4 space-y-1.5"
+                            className="pl-4 text-[#b8add2] mb-5 space-y-2 text-sm"
                             {...props}
                           />
                         ),
                         ol: ({ ...props }) => (
                           <ol
-                            className="pl-4 text-[#475569] mb-4 space-y-1.5"
+                            className="pl-4 text-[#b8add2] mb-5 space-y-2 text-sm"
                             {...props}
                           />
                         ),
                         li: ({ ...props }) => (
                           <li
-                            className="text-xs text-[#475569] flex gap-2 before:content-['>'] before:text-[#334155] before:shrink-0"
+                            className="flex gap-2 before:content-['>'] before:text-[#ed4b9e] before:shrink-0 before:font-bold text-sm text-[#b8add2]"
                             {...props}
                           />
                         ),
                         strong: ({ ...props }) => (
                           <strong
-                            className="text-[#2962ff] font-bold"
+                            className="text-[#1fc7d4] font-bold"
                             {...props}
                           />
                         ),
                         blockquote: ({ ...props }) => (
                           <blockquote
-                            className="border-l-2 border-[rgba(41,98,255,0.3)] pl-4 my-4 text-[#475569] italic bg-[rgba(41,98,255,0.02)] py-3 pr-4"
-                            style={{ borderRadius: '0 2px 2px 0' }}
+                            className="border-l-4 border-[#7645d9] pl-5 my-6 text-[#b8add2] italic bg-[rgba(118,69,217,0.1)] py-4 pr-5 rounded-r-xl"
                             {...props}
                           />
                         ),
@@ -412,33 +423,36 @@ export default function Developers() {
                           const codeId = codeString.slice(0, 20);
                           return !inline && match ? (
                             <div
-                              className="my-5 border border-[rgba(41,98,255,0.1)]"
-                              style={{ borderRadius: '2px' }}
+                              className="my-6 border border-[rgba(255,255,255,0.06)]"
+                              style={{
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                              }}
                             >
                               {/* Code block header */}
-                              <div className="flex items-center justify-between px-4 py-2 bg-[#03030e] border-b border-[rgba(41,98,255,0.08)]">
+                              <div className="flex items-center justify-between px-4 py-2.5 bg-[#0d0b14] border-b border-[rgba(255,255,255,0.06)]">
                                 <div className="flex items-center gap-3">
                                   <div className="flex gap-1.5">
-                                    <span className="w-2 h-2 rounded-full bg-[#1e293b]" />
-                                    <span className="w-2 h-2 rounded-full bg-[#1e293b]" />
-                                    <span className="w-2 h-2 rounded-full bg-[rgba(41,98,255,0.25)]" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#444155]" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#444155]" />
+                                    <span className="w-2.5 h-2.5 rounded-full bg-[#ed4b9e]" />
                                   </div>
-                                  <span className="text-[10px] text-[#334155] tracking-widest">
+                                  <span className="text-[10px] text-[#b8add2] tracking-widest font-bold uppercase">
                                     {match[1]}
                                   </span>
                                 </div>
                                 <button
                                   onClick={() => copyCode(codeString, codeId)}
-                                  className="flex items-center gap-1.5 text-[10px] text-[#334155] hover:text-[#2962ff] transition-colors tracking-wider"
+                                  className="flex items-center gap-1.5 text-[10px] text-[#b8add2] hover:text-[#1fc7d4] transition-colors tracking-wider font-bold"
                                 >
                                   {copiedCode === codeId ? (
                                     <>
-                                      <Check className="w-3 h-3 text-[#2962ff]" />{' '}
+                                      <Check className="w-3.5 h-3.5 text-[#1fc7d4]" />{' '}
                                       copied
                                     </>
                                   ) : (
                                     <>
-                                      <Copy className="w-3 h-3" /> copy
+                                      <Copy className="w-3.5 h-3.5" /> copy
                                     </>
                                   )}
                                 </button>
@@ -448,13 +462,12 @@ export default function Developers() {
                                 style={terminalStyle}
                                 customStyle={{
                                   margin: 0,
-                                  borderRadius: '0 0 2px 2px',
-                                  background: '#03030e',
+                                  background: '#08060b',
                                 }}
                                 codeTagProps={{
                                   style: {
                                     fontFamily: '"JetBrains Mono", monospace',
-                                    fontSize: '0.78rem',
+                                    fontSize: '0.85rem',
                                   },
                                 }}
                               >
@@ -463,8 +476,7 @@ export default function Developers() {
                             </div>
                           ) : inline ? (
                             <code
-                              className="px-1.5 py-0.5 bg-[rgba(41,98,255,0.05)] text-[#2962ff] text-[0.8em] font-mono border border-[rgba(41,98,255,0.1)]"
-                              style={{ borderRadius: '2px' }}
+                              className="px-2 py-0.5 bg-[rgba(31,199,212,0.1)] text-[#1fc7d4] text-[0.85em] font-mono rounded-md"
                               {...props}
                             >
                               {children}
@@ -482,9 +494,9 @@ export default function Developers() {
                   </div>
 
                   {/* ── Contract Addresses ── */}
-                  <div className="mt-12 pt-8 border-t border-[rgba(41,98,255,0.07)] relative">
-                    <div className="absolute top-0 left-0 w-1/4 h-px bg-[#2962ff] opacity-40" />
-                    <p className="text-[10px] text-[#334155] tracking-widest mb-4">
+                  <div className="mt-12 pt-8 border-t border-[rgba(255,255,255,0.06)] relative">
+                    <div className="absolute top-0 left-0 w-1/4 h-px bg-[#1fc7d4] opacity-60" />
+                    <p className="text-[10px] text-[#b8add2] tracking-widest mb-4 font-bold">
                       $ cat ./deployments/
                       {currentDoc.filename?.replace('.sol', '.json')}
                     </p>
@@ -492,33 +504,38 @@ export default function Developers() {
                       [DEPLOYED ADDRESSES]
                     </h2>
 
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       {CHAINS.map((chain) => {
                         const address = currentDoc.getAddress(chain.chainId);
                         if (!address) return null;
                         return (
                           <div
                             key={chain.id}
-                            className="group border border-[rgba(41,98,255,0.07)] hover:border-[rgba(41,98,255,0.18)] transition-colors p-4 bg-[#03030e]"
-                            style={{ borderRadius: '2px' }}
+                            className="group border border-[rgba(255,255,255,0.06)] hover:border-[rgba(31,199,212,0.4)] transition-colors p-5 bg-[#08060b]"
+                            style={{ borderRadius: '16px' }}
                           >
                             <div className="flex items-center gap-2 mb-3">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#2962ff] animate-pulse-glow" />
-                              <span className="text-xs font-bold text-[#94a3b8] tracking-wide">
+                              <span
+                                className="w-2 h-2 rounded-full bg-[#1fc7d4] animate-pulse-glow"
+                                style={{
+                                  boxShadow: '0 0 10px rgba(31,199,212,0.6)',
+                                }}
+                              />
+                              <span className="text-sm font-bold text-[#ffffff] tracking-wide">
                                 {chain.name}
                               </span>
-                              <span className="text-[10px] text-[#334155] tracking-wider">
+                              <span className="text-[10px] text-[#b8add2] tracking-wider font-bold">
                                 chain_id:{chain.chainId}
                               </span>
                             </div>
                             <div
-                              className="flex items-center gap-2 p-3 bg-[#000000] border border-[rgba(41,98,255,0.05)] group-hover:border-[rgba(41,98,255,0.12)] transition-colors"
-                              style={{ borderRadius: '2px' }}
+                              className="flex items-center gap-3 p-3.5 bg-[rgba(13,11,20,0.8)] border border-[rgba(255,255,255,0.06)] group-hover:border-[rgba(31,199,212,0.3)] transition-colors"
+                              style={{ borderRadius: '8px' }}
                             >
-                              <span className="text-[10px] text-[#334155] shrink-0 tracking-wider">
+                              <span className="text-[10px] text-[#b8add2] shrink-0 tracking-wider font-bold">
                                 addr:
                               </span>
-                              <code className="flex-1 text-xs text-[#4f46e5] font-mono break-all tracking-wide selection:bg-[rgba(41,98,255,0.2)]">
+                              <code className="flex-1 text-sm text-[#7645d9] font-mono break-all tracking-wide selection:bg-[rgba(118,69,217,0.3)]">
                                 {address}
                               </code>
                               <button
@@ -528,14 +545,14 @@ export default function Developers() {
                                     `address-${chain.id}`,
                                   )
                                 }
-                                className="p-1.5 hover:bg-[rgba(41,98,255,0.06)] transition-colors"
-                                style={{ borderRadius: '2px' }}
+                                className="p-2 hover:bg-[rgba(31,199,212,0.1)] transition-colors"
+                                style={{ borderRadius: '8px' }}
                                 title="Copy"
                               >
                                 {copiedAddress === `address-${chain.id}` ? (
-                                  <Check className="w-3.5 h-3.5 text-[#2962ff]" />
+                                  <Check className="w-4 h-4 text-[#1fc7d4]" />
                                 ) : (
-                                  <Copy className="w-3.5 h-3.5 text-[#334155] group-hover:text-[#475569] transition-colors" />
+                                  <Copy className="w-4 h-4 text-[#b8add2] group-hover:text-[#1fc7d4] transition-colors" />
                                 )}
                               </button>
                             </div>
@@ -545,28 +562,28 @@ export default function Developers() {
                     </div>
 
                     {/* Resources */}
-                    <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                    <div className="mt-8 flex flex-col sm:flex-row gap-4">
                       <a
                         href={currentDoc.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-[11px] text-[#475569] hover:text-[#2962ff] border border-[rgba(41,98,255,0.07)] hover:border-[rgba(41,98,255,0.2)] bg-[#03030e] transition-all tracking-wider"
-                        style={{ borderRadius: '2px' }}
+                        className="flex-1 flex items-center justify-center gap-2 px-5 py-4 text-[11px] text-[#b8add2] hover:text-[#ffffff] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(31,199,212,0.4)] bg-[#08060b] hover:bg-[rgba(31,199,212,0.04)] transition-all tracking-wider font-bold"
+                        style={{ borderRadius: '12px' }}
                       >
-                        <FileText className="w-3.5 h-3.5" />
+                        <FileText className="w-4 h-4 text-[#1fc7d4]" />
                         $ cat source_code.sol
-                        <ExternalLink className="w-3 h-3 opacity-40" />
+                        <ExternalLink className="w-3.5 h-3.5 opacity-50" />
                       </a>
                       <a
                         href={currentDoc.deployments}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 text-[11px] text-[#475569] hover:text-[#2962ff] border border-[rgba(41,98,255,0.07)] hover:border-[rgba(41,98,255,0.2)] bg-[#03030e] transition-all tracking-wider"
-                        style={{ borderRadius: '2px' }}
+                        className="flex-1 flex items-center justify-center gap-2 px-5 py-4 text-[11px] text-[#b8add2] hover:text-[#ffffff] border border-[rgba(255,255,255,0.08)] hover:border-[rgba(31,199,212,0.4)] bg-[#08060b] hover:bg-[rgba(31,199,212,0.04)] transition-all tracking-wider font-bold"
+                        style={{ borderRadius: '12px' }}
                       >
-                        <Code className="w-3.5 h-3.5" />
+                        <Code className="w-4 h-4 text-[#ed4b9e]" />
                         $ ls ./deployments/
-                        <ExternalLink className="w-3 h-3 opacity-40" />
+                        <ExternalLink className="w-3.5 h-3.5 opacity-50" />
                       </a>
                     </div>
                   </div>

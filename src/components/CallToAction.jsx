@@ -8,12 +8,12 @@ export default function CallToAction() {
   return (
     <section className="relative py-32 px-6 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 dot-grid opacity-15 pointer-events-none" />
+      <div className="absolute inset-0 dot-grid opacity-10 pointer-events-none" />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(41,98,255,0.04) 0%, transparent 70%)',
+            'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(118,69,217,0.08) 0%, rgba(237,75,158,0.04) 50%, transparent 70%)',
         }}
       />
 
@@ -26,10 +26,10 @@ export default function CallToAction() {
         >
           {/* Terminal boot block */}
           <div className="mb-16">
-            <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-6">
+            <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-6 font-bold">
               magnetar@defi:~$ ./deploy --env production --confirm
             </p>
-            <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-8 inline-flex">
+            <span className="section-badge mb-8 inline-flex">
               // get_started
             </span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#ffffff] leading-[0.92] tracking-tighter mt-6">
@@ -39,7 +39,7 @@ export default function CallToAction() {
               <br />
               You Deserve.
             </h2>
-            <p className="text-[#475569] text-sm mt-8 max-w-xl leading-relaxed">
+            <p className="text-[#b8add2] text-sm mt-8 max-w-xl leading-relaxed">
               # Permissionless swap routing, gauge-directed liquidity,
               <br />
               # and sustainable yield through ve(3,3) governance.
@@ -48,20 +48,17 @@ export default function CallToAction() {
           </div>
 
           {/* Stats row — key-value terminal style */}
-          <div
-            className="flex flex-wrap gap-8 mb-14 p-5 border border-[rgba(41,98,255,0.07)] bg-[rgba(41,98,255,0.02)]"
-            style={{ borderRadius: '2px' }}
-          >
+          <div className="flex flex-wrap gap-8 mb-14 p-6 term-card">
             {[
               { key: 'DEPLOYMENT', value: 'Phase 1' },
               { key: 'CUSTODY', value: 'Non-custodial' },
               { key: 'SOURCE', value: 'Open Source' },
             ].map(({ key, value }) => (
               <div key={key}>
-                <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-1">
+                <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-1 font-bold">
                   {key}:
                 </p>
-                <p className="text-sm font-bold text-[#ffffff]">{value}</p>
+                <p className="text-base font-bold text-[#ffffff]">{value}</p>
               </div>
             ))}
           </div>
@@ -89,7 +86,7 @@ export default function CallToAction() {
           </div>
 
           {/* Disclaimer */}
-          <p className="mt-8 text-[#334155] text-[10px] tracking-wider">
+          <p className="mt-8 text-[#b8add2] text-[10px] tracking-wider font-medium">
             # no-signup-required · fully-decentralized · defi-carries-risk —
             DYOR
           </p>

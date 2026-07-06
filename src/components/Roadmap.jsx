@@ -7,7 +7,7 @@ const phases = [
     title: 'Foundation',
     status: 'completed',
     quarter: '2026-Q1/Q2',
-    color: '#2962ff',
+    color: '#1fc7d4',
     items: [
       've(3,3) DEX launch',
       'LP Aggregator v1',
@@ -21,7 +21,7 @@ const phases = [
     title: 'Expansion',
     status: 'active',
     quarter: '2026-Q3',
-    color: '#4f46e5',
+    color: '#ed4b9e',
     items: [
       'Intents swapping architecture',
       've-NFT lock rentals market',
@@ -35,7 +35,7 @@ const phases = [
     title: 'Scale',
     status: 'upcoming',
     quarter: '2026-Q4',
-    color: '#3730a3',
+    color: '#7645d9',
     items: [
       'Magnetar Web Wallet',
       'Payments infrastructure',
@@ -49,7 +49,7 @@ const phases = [
     title: 'Dominance',
     status: 'upcoming',
     quarter: '2027',
-    color: '#1e1b4b',
+    color: '#9a67ea',
     items: [
       'Magnetar L2 rollup',
       'zkEVM integration',
@@ -62,22 +62,22 @@ const phases = [
 
 const statusConfig = {
   completed: {
-    icon: <CheckCircle2 className="w-3 h-3 text-[#2962ff]" />,
+    icon: <CheckCircle2 className="w-3 h-3 text-[#1fc7d4]" />,
     badge:
-      'text-[#2962ff] border-[rgba(41,98,255,0.3)] bg-[rgba(41,98,255,0.05)]',
+      'text-[#1fc7d4] border-[rgba(31,199,212,0.3)] bg-[rgba(31,199,212,0.08)]',
     label: '[DONE]',
     prefix: '✓',
   },
   active: {
-    icon: <Clock className="w-3 h-3 text-[#2962ff]" />,
+    icon: <Clock className="w-3 h-3 text-[#ed4b9e]" />,
     badge:
-      'text-[#2962ff] border-[rgba(41,98,255,0.4)] bg-[rgba(41,98,255,0.08)]',
+      'text-[#ed4b9e] border-[rgba(237,75,158,0.4)] bg-[rgba(237,75,158,0.08)]',
     label: '[ACTIVE]',
     prefix: '>',
   },
   upcoming: {
-    icon: <Circle className="w-3 h-3 text-[#334155]" />,
-    badge: 'text-[#334155] border-[rgba(41,98,255,0.06)]',
+    icon: <Circle className="w-3 h-3 text-[#b8add2]" />,
+    badge: 'text-[#b8add2] border-[rgba(255,255,255,0.1)]',
     label: '[QUEUED]',
     prefix: '-',
   },
@@ -96,16 +96,14 @@ export default function Roadmap() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-4 font-bold">
             magnetar@defi:~$ cat ./roadmap.log
           </p>
-          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
-            // roadmap
-          </span>
+          <span className="section-badge mb-5 inline-flex">// roadmap</span>
           <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mt-5 mb-4 tracking-tight">
             Building the <span className="gradient-text">Long Game</span>
           </h2>
-          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+          <p className="text-[#b8add2] text-sm max-w-lg leading-relaxed">
             # A transparent, phased roadmap toward making Magnetar
             <br /># the backbone of decentralized finance.
           </p>
@@ -121,8 +119,10 @@ export default function Roadmap() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative p-7 border-l border-[rgba(41,98,255,0.06)] first:border-l-0 ${
-                  phase.status === 'active' ? 'bg-[rgba(41,98,255,0.02)]' : ''
+                className={`relative term-card p-7 m-1 ${
+                  phase.status === 'active'
+                    ? 'border-[rgba(237,75,158,0.3)] shadow-[0_0_30px_rgba(237,75,158,0.1)]'
+                    : ''
                 }`}
               >
                 {/* Top color accent */}
@@ -136,19 +136,19 @@ export default function Roadmap() {
                 {/* Log entry header */}
                 <div className="flex items-start justify-between mb-5 mt-4">
                   <div>
-                    <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-0.5">
+                    <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-0.5 font-bold">
                       {phase.quarter}
                     </p>
                     <p
-                      className="text-xs font-bold tracking-widest"
+                      className="text-sm font-bold tracking-widest"
                       style={{ color: phase.color }}
                     >
                       {phase.phase}
                     </p>
                   </div>
                   <span
-                    className={`inline-flex items-center text-[10px] font-bold px-2 py-1 border tracking-widest ${sc.badge}`}
-                    style={{ borderRadius: '2px' }}
+                    className={`inline-flex items-center text-[10px] font-bold px-3 py-1 border tracking-widest ${sc.badge}`}
+                    style={{ borderRadius: '9999px' }}
                   >
                     {sc.label}
                   </span>
@@ -158,7 +158,7 @@ export default function Roadmap() {
                 <h3 className="text-base font-bold text-[#ffffff] mb-5 tracking-tight">
                   {phase.title}
                   {phase.status === 'active' && (
-                    <span className="ml-2 text-[#2962ff] cursor-blink">▋</span>
+                    <span className="ml-2 text-[#ed4b9e] cursor-blink">▇</span>
                   )}
                 </h3>
 
@@ -167,7 +167,7 @@ export default function Roadmap() {
                   {phase.items.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span
-                        className="text-[10px] mt-0.5 shrink-0"
+                        className="text-[10px] mt-0.5 shrink-0 font-bold"
                         style={{ color: phase.color }}
                       >
                         {sc.prefix}
@@ -175,10 +175,10 @@ export default function Roadmap() {
                       <span
                         className={`text-xs tracking-wide ${
                           phase.status === 'completed'
-                            ? 'text-[#334155] line-through'
+                            ? 'text-[#666171] line-through'
                             : phase.status === 'active'
-                            ? 'text-[#94a3b8]'
-                            : 'text-[#334155]'
+                            ? 'text-[#b8add2]'
+                            : 'text-[#666171]'
                         }`}
                       >
                         {item}

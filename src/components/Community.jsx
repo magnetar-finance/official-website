@@ -86,16 +86,14 @@ export default function Community() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-[10px] text-[#334155] tracking-widest uppercase mb-4">
+          <p className="text-[10px] text-[#b8add2] tracking-widest uppercase mb-4 font-bold">
             magnetar@defi:~$ ./connect --community
           </p>
-          <span className="section-badge text-[#4f46e5] border-[rgba(41,98,255,0.2)] mb-5 inline-flex">
-            // community
-          </span>
+          <span className="section-badge mb-5 inline-flex">// community</span>
           <h2 className="text-3xl md:text-5xl font-bold text-[#ffffff] mt-5 mb-4 tracking-tight">
             Join the <span className="gradient-text">Magnetar Community</span>
           </h2>
-          <p className="text-[#475569] text-sm max-w-lg leading-relaxed">
+          <p className="text-[#b8add2] text-sm max-w-lg leading-relaxed">
             # DeFi traders, LPs, and builders — all working toward
             <br /># a better financial system.
           </p>
@@ -115,45 +113,44 @@ export default function Community() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`group term-card p-5 block transition-all duration-200 ${
+                className={`group term-card p-6 block transition-all duration-200 ${
                   !ch.available
                     ? 'opacity-40 cursor-default'
-                    : 'hover:glow-indigo-sm'
+                    : 'hover:border-[rgba(31,199,212,0.4)] hover:shadow-[0_8px_24px_rgba(31,199,212,0.1)]'
                 }`}
-                style={{ borderRadius: '2px' }}
               >
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-5">
                   <div
-                    className="w-9 h-9 flex items-center justify-center"
+                    className="w-11 h-11 flex items-center justify-center"
                     style={{
-                      background: `${ch.color}10`,
-                      border: `1px solid ${ch.color}20`,
-                      borderRadius: '2px',
+                      background: `${ch.color}12`,
+                      border: `1px solid ${ch.color}25`,
+                      borderRadius: '9999px',
                     }}
                   >
                     <Icon
-                      className="w-4 h-4"
-                      style={{ color: ch.available ? ch.color : '#334155' }}
+                      className="w-5 h-5"
+                      style={{ color: ch.available ? ch.color : '#666171' }}
                     />
                   </div>
                   {ch.available ? (
-                    <ExternalLink className="w-3 h-3 text-[#334155] group-hover:text-[#2962ff] transition-colors" />
+                    <ExternalLink className="w-4 h-4 text-[#b8add2] group-hover:text-[#1fc7d4] transition-colors" />
                   ) : (
                     <span
-                      className="text-[10px] text-[#334155] border border-[rgba(41,98,255,0.08)] px-2 py-0.5 tracking-wider"
-                      style={{ borderRadius: '2px' }}
+                      className="text-[10px] text-[#ed4b9e] border border-[rgba(237,75,158,0.3)] bg-[rgba(237,75,158,0.08)] px-2.5 py-1 tracking-wider font-bold"
+                      style={{ borderRadius: '9999px' }}
                     >
                       [SOON]
                     </span>
                   )}
                 </div>
-                <p className="text-xs font-bold text-[#ffffff] mb-0.5 tracking-wide">
+                <p className="text-sm font-bold text-[#ffffff] mb-1 tracking-wide">
                   {ch.label}
                 </p>
-                <p className="text-[10px] text-[#334155] mb-3 tracking-wider">
+                <p className="text-[10px] text-[#1fc7d4] mb-3 tracking-wider font-bold">
                   # {ch.handle}
                 </p>
-                <p className="text-xs text-[#475569] leading-relaxed">
+                <p className="text-xs text-[#b8add2] leading-relaxed">
                   {ch.description}
                 </p>
               </motion.a>
@@ -175,10 +172,9 @@ export default function Community() {
               href={href}
               target={href !== '#' ? '_blank' : undefined}
               rel={href !== '#' ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-2.5 text-xs text-[#475569] hover:text-[#2962ff] px-5 py-3 term-card transition-all duration-200"
-              style={{ borderRadius: '2px' }}
+              className="flex items-center gap-3 text-sm text-[#b8add2] hover:text-[#1fc7d4] px-6 py-4 term-card transition-all duration-200 font-medium hover:border-[rgba(31,199,212,0.4)]"
             >
-              <Icon className="w-3.5 h-3.5 text-[#334155] shrink-0" />
+              <Icon className="w-4 h-4 text-[#1fc7d4] shrink-0" />
               ./{label}
             </a>
           ))}
